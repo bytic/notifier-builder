@@ -1,0 +1,38 @@
+{
+  "name": "bytic/notifier-builder",
+  "type": "library",
+  "license": "MIT",
+  "description": "notifier builder module for bytic library",
+  "keywords": [  ],
+  "homepage": "https://github.com/bytic/notifier-builder",
+  "authors": [
+    {
+      "name": "Gabriel Solomon",
+      "email": "hello@gabrielsolomon.ro"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ByTIC\\NotifierBuilder\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ByTIC\\NotifierBuilder\\Tests\\": "tests/src",
+      "ByTIC\\NotifierBuilder\\Tests\\Fixtures\\": "tests/fixtures"
+    }
+  },
+  "require": {
+    "php": "^7.2",
+    "bytic/notifier": "^1.0",
+    "bytic/orm": "^0.9|^1.0",
+    "bytic/models-smart-properties": "^1.0"
+  },
+  "require-dev": {
+    "bytic/application": "^1.0",
+    "bytic/dispatcher": "^1.0",
+    "bytic/staging": "^1.0",
+    "bytic/phpqatools": "^1.0",
+    "mockery/mockery": "^1.1"
+  }
+}
