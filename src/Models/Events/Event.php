@@ -3,6 +3,7 @@
 namespace ByTIC\NotifierBuilder\Models\Events;
 
 use Nip\Records\Record;
+use Nip_Registry;
 
 /**
  * Class Event
@@ -11,4 +12,9 @@ use Nip\Records\Record;
 class Event extends Record
 {
     use EventTrait;
+
+    public function getRegistry()
+    {
+        // TODO: Implement getRegistry() method.
+    }
 }

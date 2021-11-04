@@ -3,9 +3,9 @@
 namespace ByTIC\NotifierBuilder\Tests\Models\Topics;
 
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
-use ByTIC\NotifierBuilder\Tests\Fixtures\Models\Events\Event;
-use ByTIC\NotifierBuilder\Tests\Fixtures\Models\Events\Events;
-use ByTIC\NotifierBuilder\Tests\Fixtures\Models\Topics\Topic;
+use ByTIC\NotifierBuilder\Models\Events\Event;
+use ByTIC\NotifierBuilder\Models\Events\Events;
+use ByTIC\NotifierBuilder\Models\Topics\Topic;
 use Nip\Records\Locator\ModelLocator;
 use Nip\Records\Record;
 

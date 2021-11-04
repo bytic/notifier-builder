@@ -2,11 +2,11 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Models\Events;
 
+use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Events\Statuses\Pending;
 use ByTIC\NotifierBuilder\Models\Events\Statuses\Sent;
 use ByTIC\NotifierBuilder\Models\Events\Statuses\Skipped;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
-use ByTIC\NotifierBuilder\Tests\Fixtures\Models\Events\Events;
 
 /**
  * Class EventsTraitTest

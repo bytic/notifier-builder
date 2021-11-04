@@ -3,6 +3,7 @@
 namespace ByTIC\NotifierBuilder\Models\Recipients;
 
 use Nip\Records\Record;
+use Nip_Registry;
 
 /**
  * Class Recipient
@@ -11,4 +12,9 @@ use Nip\Records\Record;
 class Recipient extends Record
 {
     use RecipientTrait;
+
+    public function getRegistry()
+    {
+        // TODO: Implement getRegistry() method.
+    }
 }

@@ -2,14 +2,10 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Models\Recipients;
 
-use ByTIC\NotifierBuilder\Models\Recipients\Types\Single;
+use ByTIC\NotifierBuilder\Models\Messages\Message;
+use ByTIC\NotifierBuilder\Models\Messages\Messages;
+use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
-use ByTIC\NotifierBuilder\Tests\Fixtures\Models\Events\Event;
-use ByTIC\NotifierBuilder\Tests\Fixtures\Models\Messages\Message;
-use ByTIC\NotifierBuilder\Tests\Fixtures\Models\Messages\Messages;
-use ByTIC\NotifierBuilder\Tests\Fixtures\Models\Recipients\Recipient;
-use ByTIC\NotifierBuilder\Tests\Fixtures\Models\Recipients\Recipients;
-
 use Mockery as m;
 use Nip\Records\Locator\ModelLocator;
 
