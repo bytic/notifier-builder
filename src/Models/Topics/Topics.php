@@ -14,6 +14,8 @@ class Topics extends RecordManager
     use SingletonTrait;
     use TopicsTrait;
 
+    public const TABLE = 'notification-topics';
+
     public function getRootNamespace()
     {
         return 'ByTIC\NotifierBuilder\Models\\';

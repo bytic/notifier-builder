@@ -3,6 +3,7 @@
 namespace ByTIC\NotifierBuilder\Models\Topics;
 
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
+use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
 use Nip\Records\AbstractModels\Record;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
 
@@ -75,9 +76,9 @@ trait TopicsTrait
     /**
      * @return string
      */
-    protected function generateTable()
+    protected function generateTable(): string
     {
-        return 'notification-topics';
+        return Topics::TABLE;
     }
 
     /**

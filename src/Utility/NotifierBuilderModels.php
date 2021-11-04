@@ -4,6 +4,10 @@ namespace ByTIC\NotifierBuilder\Utility;
 
 use ByTIC\MediaLibrary\Models\MediaProperties\MediaProperties;
 use ByTIC\MediaLibrary\Models\MediaRecords\MediaRecords;
+use ByTIC\NotifierBuilder\Models\Events\Events;
+use ByTIC\NotifierBuilder\Models\Messages\Messages;
+use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
+use ByTIC\NotifierBuilder\Models\Topics\Topics;
 use ByTIC\Payments\Models\PurchaseSessions\PurchaseSessionsTrait;
 use Nip\Records\Locator\ModelLocator;
 use Nip\Records\RecordManager;
@@ -14,25 +18,38 @@ use Nip\Records\RecordManager;
  */
 class NotifierBuilderModels
 {
-    protected static $purchaseModel = 'purchases';
-    protected static $purchaseSessionsModel = 'purchase-sessions';
-
     protected static $models = [];
 
     /**
-     * @return RecordManager
+     * @return RecordManager|Events
      */
-    public static function purchases()
+    public static function events()
     {
-        return static::getModels('purchases', 'purchases');
+        return static::getModels('events', Events::class);
     }
 
     /**
-     * @return PurchaseSessionsTrait
+     * @return RecordManager|Messages
      */
-    public static function sessions()
+    public static function messages()
     {
-        return static::getModels('purchasesSessions', 'purchase-sessions');
+        return static::getModels('messages', Messages::class);
+    }
+
+    /**
+     * @return RecordManager|Recipients
+     */
+    public static function recipients()
+    {
+        return static::getModels('recipients', Recipients::class);
+    }
+
+    /**
+     * @return RecordManager|Topics
+     */
+    public static function topics()
+    {
+        return static::getModels('topics', Topics::class);
     }
 
     /**
@@ -60,7 +77,7 @@ class NotifierBuilderModels
         if (!function_exists('config')) {
             return $default;
         }
-        $varName = 'payments.models.' . $type;
+        $varName = 'notifier-builder.models.' . $type;
         $config = config();
         if ($config->has($varName)) {
             return $config->get($varName);

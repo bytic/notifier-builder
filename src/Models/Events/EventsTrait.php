@@ -2,8 +2,6 @@
 
 namespace ByTIC\NotifierBuilder\Models\Events;
 
-use Nip\Utility\Traits\SingletonTrait;
-
 /**
  * Trait EventsTrait
  * @package ByTIC\NotifierBuilder\Models\Events
@@ -25,9 +23,9 @@ trait EventsTrait
     /**
      * @return string
      */
-    protected function generateTable()
+    protected function generateTable(): string
     {
-        return 'notification-events';
+        return Events::TABLE;
     }
 
     /**

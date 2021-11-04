@@ -5,9 +5,9 @@ declare(strict_types=1);
 use Phinx\Migration\AbstractMigration;
 
 /**
- * Class CreateMessagesTable
+ * Class CreateEventsTable
  */
-final class CreateMessagesTable extends AbstractMigration
+final class CreateEventsTable extends AbstractMigration
 {
     /**
      * Change Method.
@@ -22,7 +22,7 @@ final class CreateMessagesTable extends AbstractMigration
      */
     public function change(): void
     {
-        $table_name = \ByTIC\NotifierBuilder\Utility\NotifierBuilderModels::messages()->getTable();
+        $table_name = \ByTIC\NotifierBuilder\Utility\NotifierBuilderModels::events()->getTable();
         $exists = $this->hasTable($table_name);
         if ($exists) {
             return;
@@ -30,10 +30,9 @@ final class CreateMessagesTable extends AbstractMigration
         $table = $this->table($table_name);
         $table
             ->addColumn('id_topic', 'integer')
-            ->addColumn('recipient', 'string')
-            ->addColumn('channel', 'enum', ['values' => ['email']])
-            ->addColumn('subject', 'string')
-            ->addColumn('content', 'text')
+            ->addColumn('id_email', 'biginteger')
+            ->addColumn('id_item', 'biginteger')
+            ->addColumn('status', 'enum', ['values' => ['pending', 'skipped', 'sent']])
             ->addColumn('modified', 'timestamp', [
                 'default' => 'CURRENT_TIMESTAMP',
                 'update' => 'CURRENT_TIMESTAMP',
@@ -43,7 +42,11 @@ final class CreateMessagesTable extends AbstractMigration
             ]);
 
         $table->addIndex(['id_topic']);
-        $table->addIndex(['channel']);
+        $table->addIndex(['id_email']);
+        $table->addIndex(['id_item']);
+        $table->addIndex(['status']);
+        $table->addIndex(['modified']);
+        $table->addIndex(['created']);
 
         $table->save();
     }

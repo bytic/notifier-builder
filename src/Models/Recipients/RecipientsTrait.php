@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Models\Recipients;
 
+use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use Nip\Records\AbstractModels\Record;
 
 /**
@@ -56,9 +57,9 @@ trait RecipientsTrait
     /**
      * @return string
      */
-    protected function generateTable()
+    protected function generateTable(): string
     {
-        return 'notification-recipients';
+        return Recipients::TABLE;
     }
 
     /**

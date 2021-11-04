@@ -23,4 +23,9 @@ class EventsTraitTest extends AbstractTest
         self::assertInstanceOf(Sent::class, $statuses['sent']);
         self::assertInstanceOf(Skipped::class, $statuses['skipped']);
     }
+
+    public function test_getTable()
+    {
+        self::assertSame('notification-events', Events::instance()->getTable());
+    }
 }

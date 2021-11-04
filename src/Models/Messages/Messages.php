@@ -14,6 +14,8 @@ class Messages extends RecordManager
     use SingletonTrait;
     use MessagesTrait;
 
+    public const TABLE = 'notification-messages';
+
     public function getRootNamespace()
     {
         return 'ByTIC\NotifierBuilder\Models\\';

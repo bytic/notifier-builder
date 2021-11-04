@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
+use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
@@ -56,8 +57,8 @@ trait MessagesTrait
     /**
      * @return string
      */
-    protected function generateTable()
+    protected function generateTable(): string
     {
-        return 'notification-messages';
+        return Messages::TABLE;
     }
 }

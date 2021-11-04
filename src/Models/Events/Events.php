@@ -14,6 +14,8 @@ class Events extends RecordManager
     use SingletonTrait;
     use EventsTrait;
 
+    public const TABLE = 'notification-events';
+
     public function getRootNamespace()
     {
         return 'ByTIC\NotifierBuilder\Models\\';

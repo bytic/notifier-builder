@@ -14,6 +14,8 @@ class Recipients extends RecordManager
     use SingletonTrait;
     use RecipientsTrait;
 
+    public const TABLE = 'notification-recipients';
+
     public function getRootNamespace()
     {
         return 'ByTIC\NotifierBuilder\Models\\';
