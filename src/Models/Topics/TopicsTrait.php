@@ -14,8 +14,6 @@ use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
  */
 trait TopicsTrait
 {
-    use \Nip\Utility\Traits\SingletonTrait;
-
 
     /**
      * Fire a notification event

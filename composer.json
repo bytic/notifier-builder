@@ -23,13 +23,13 @@
     }
   },
   "require": {
-    "php": "^7.2",
     "bytic/notifier": "^1.0",
     "bytic/orm": "^0.9|^1.0",
     "bytic/models-smart-properties": "^1.0"
   },
   "require-dev": {
     "bytic/application": "^1.0",
+    "bytic/migrations": "^0.12",
     "bytic/dispatcher": "^1.0",
     "bytic/staging": "^1.0",
     "bytic/phpqatools": "^1.0",

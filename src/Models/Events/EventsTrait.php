@@ -11,7 +11,6 @@ use Nip\Utility\Traits\SingletonTrait;
 trait EventsTrait
 {
     use \ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordsTrait;
-    use SingletonTrait;
 
     /**
      * @inheritDoc

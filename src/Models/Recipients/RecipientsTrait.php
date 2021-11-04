@@ -10,7 +10,6 @@ use Nip\Records\AbstractModels\Record;
  */
 trait RecipientsTrait
 {
-    use \Nip\Utility\Traits\SingletonTrait;
     use \ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordsTrait;
 
     /**

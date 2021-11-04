@@ -16,7 +16,6 @@ use Nip\Records\Locator\ModelLocator;
  */
 trait MessagesTrait
 {
-    use \Nip\Utility\Traits\SingletonTrait;
 
     /**
      * @param string|Topic $topic
