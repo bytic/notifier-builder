@@ -14,7 +14,7 @@ class Events extends RecordManager
     use EventsTrait;
     use CommonRecordsTrait;
 
-    public const TABLE = 'notification-events';
+    public const TABLE = 'notifications-events';
 
 
 }

@@ -14,7 +14,7 @@ class Recipients extends RecordManager
     use RecipientsTrait;
     use CommonRecordsTrait;
 
-    public const TABLE = 'notification-recipients';
+    public const TABLE = 'notifications-recipients';
 
 
 }

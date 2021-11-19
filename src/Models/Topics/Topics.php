@@ -15,6 +15,6 @@ class Topics extends RecordManager
     use TopicsTrait;
     use CommonRecordsTrait;
 
-    public const TABLE = 'notification-topics';
+    public const TABLE = 'notifications-topics';
 
 }

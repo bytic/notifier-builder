@@ -14,7 +14,7 @@ class Messages extends RecordManager
     use MessagesTrait;
     use CommonRecordsTrait;
 
-    public const TABLE = 'notification-messages';
+    public const TABLE = 'notifications-messages';
 
 
 }

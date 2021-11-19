@@ -12,6 +12,11 @@ trait CommonRecordsTrait
 {
     use HasTranslations;
 
+    protected function generateController(): string
+    {
+        return $this->getTable();
+    }
+
     /**
      * @return string
      */
