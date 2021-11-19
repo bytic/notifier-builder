@@ -2,8 +2,8 @@
 
 namespace ByTIC\NotifierBuilder\Models\Recipients;
 
-use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use Nip\Records\AbstractModels\Record;
+use Nip\Records\Locator\ModelLocator;
 
 /**
  * Trait RecipientsTrait
@@ -40,16 +40,16 @@ trait RecipientsTrait
      *
      * @return string
      */
-    public static function getRecipientManagerClass($name)
+    public static function getRecipientManagerClass($name): string
     {
-        return inflector()->pluralize(inflector()->classify($name));
+        return ModelLocator::class($name);
     }
 
     /**
      * @param string $name
      * @return string
      */
-    public static function generateRecipientGetterMethod($name)
+    public static function generateRecipientGetterMethod($name): string
     {
         return 'get' . inflector()->singularize(inflector()->classify($name));
     }
