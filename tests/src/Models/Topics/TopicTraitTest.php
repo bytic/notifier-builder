@@ -24,7 +24,7 @@ class TopicTraitTest extends AbstractTest
         $eventMock->shouldReceive('save')->once();
         $eventsMock->shouldReceive('getNew')->andReturn($eventMock);
 
-        ModelLocator::set('Notifications\Events', $eventsMock);
+        ModelLocator::set(Events::class, $eventsMock);
 
         $model = new Record();
 

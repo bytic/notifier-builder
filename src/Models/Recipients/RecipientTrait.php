@@ -9,7 +9,7 @@ use ByTIC\NotifierBuilder\Models\Messages\MessagesTrait;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Models\Recipients\Types\AbstractType;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
-use Nip\Records\Locator\ModelLocator;
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\Record;
 use Nip\Records\RecordManager as Records;
 
@@ -92,7 +92,7 @@ trait RecipientTrait
     public function getNotificationMessage($channel = 'email')
     {
         /** @var MessagesTrait $messagesTable */
-        $messagesTable = ModelLocator::get('Notifications\Messages');
+        $messagesTable = NotifierBuilderModels::messages();
         return $messagesTable::getGlobal(
             $this->id_topic,
             $this->getRecipient(),

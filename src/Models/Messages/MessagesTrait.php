@@ -7,7 +7,7 @@ use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientsTrait as Recipients;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
-use Nip\Records\Locator\ModelLocator;
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
  * Class Messages
@@ -28,7 +28,7 @@ trait MessagesTrait
     public static function getGlobal($topic, $recipient, $channel)
     {
         /** @var Recipients $recipientsTable */
-        $recipientsTable = ModelLocator::get('Notifications\Recipients');
+        $recipientsTable = NotifierBuilderModels::recipients();
         $params['where'] = [];
         $params['where'][] = ['`id_topic` = ?', self::formatTopic($topic)];
         $params['where'][] = [

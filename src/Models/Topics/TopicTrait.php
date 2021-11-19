@@ -5,7 +5,7 @@ namespace ByTIC\NotifierBuilder\Models\Topics;
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Models\Topics\TopicsTrait as Topics;
-use Nip\Records\Locator\ModelLocator;
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\RecordManager;
 
 /**
@@ -32,7 +32,7 @@ trait TopicTrait
     public function fireEvent($model)
     {
         /** @var Event $event */
-        $event = ModelLocator::get('Notifications\Events')->getNew();
+        $event = NotifierBuilderModels::events()->getNew();
         $event->status = 'pending';
         $event->populateFromTopic($this);
         $event->populateFromModel($model);
@@ -73,7 +73,7 @@ trait TopicTrait
     public function generateTargetManager()
     {
         /** @var Topics $topicsManager */
-        $topicsManager = ModelLocator::get('Notifications\Topics');
+        $topicsManager = NotifierBuilderModels::topics();
         return $topicsManager::getTargetManager($this->getTarget());
     }
 }

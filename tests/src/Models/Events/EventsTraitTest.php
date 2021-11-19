@@ -28,7 +28,7 @@ class EventsTraitTest extends AbstractTest
     public function test_getTable()
     {
         $repository = $this->newRepository();
-        self::assertSame('notification-events', $repository->getTable());
+        self::assertSame('notifications-events', $repository->getTable());
     }
 
     protected function newRepository()

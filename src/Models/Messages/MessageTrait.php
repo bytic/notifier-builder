@@ -3,7 +3,7 @@
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
-use Nip\Records\Locator\ModelLocator;
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
  * Class Topic
@@ -51,7 +51,7 @@ trait MessageTrait
         $params = [];
         $params['where'][] = ['`id_topic` = ?', $this->id_topic];
         $params['where'][] = ['`recipient` = ?', $this->recipient];
-        $recipientsTable = ModelLocator::get('Notifications\Recipients');
+        $recipientsTable = NotifierBuilderModels::recipients();
         return $recipientsTable->findOneByParams($params);
     }
 }
