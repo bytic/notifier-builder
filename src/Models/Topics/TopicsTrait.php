@@ -2,10 +2,11 @@
 
 namespace ByTIC\NotifierBuilder\Models\Topics;
 
+use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
-use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
-use Nip\Records\AbstractModels\Record;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
+use Nip\Records\AbstractModels\Record;
 
 /**
  * Class TopicsTrait
@@ -15,6 +16,29 @@ use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
  */
 trait TopicsTrait
 {
+    use HasDatabaseConnectionTrait;
+
+    protected function initRelations()
+    {
+        parent::initRelations();
+        $this->initRelationsCommon();
+    }
+
+    protected function initRelationsCommon()
+    {
+        $this->initRelationsEvents();
+        $this->initRelationsRecipients();
+    }
+
+    protected function initRelationsEvents()
+    {
+        $this->hasMany('Events', ['class' => get_class(NotifierBuilderModels::events())]);
+    }
+
+    protected function initRelationsRecipients()
+    {
+        $this->hasMany('Recipients', ['class' => get_class(NotifierBuilderModels::recipients()), 'fk' => 'id_topic']);
+    }
 
     /**
      * Fire a notification event

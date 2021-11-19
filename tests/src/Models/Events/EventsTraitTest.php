@@ -16,7 +16,8 @@ class EventsTraitTest extends AbstractTest
 {
     public function testGetStatuses()
     {
-        $statuses = Events::instance()->getStatuses();
+        $repository = $this->newRepository();
+        $statuses = $repository->getStatuses();
 
         self::assertCount(3, $statuses);
         self::assertInstanceOf(Pending::class, $statuses['pending']);
@@ -26,6 +27,13 @@ class EventsTraitTest extends AbstractTest
 
     public function test_getTable()
     {
-        self::assertSame('notification-events', Events::instance()->getTable());
+        $repository = $this->newRepository();
+        self::assertSame('notification-events', $repository->getTable());
+    }
+
+    protected function newRepository()
+    {
+        $repository = new Events();
+        return $repository;
     }
 }

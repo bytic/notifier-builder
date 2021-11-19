@@ -10,6 +10,8 @@ use ByTIC\PackageBase\BaseBootableServiceProvider;
  */
 class NotifierBuilderProvider extends BaseBootableServiceProvider
 {
+    public const NAME = 'notifier-builder';
+
     public function migrations()
     {
         return dirname(__DIR__) . '/migrations/';

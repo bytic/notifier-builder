@@ -3,7 +3,6 @@
 namespace ByTIC\NotifierBuilder\Models\Events;
 
 use Nip\Records\Record;
-use Nip_Registry;
 
 /**
  * Class Event

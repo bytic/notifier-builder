@@ -2,11 +2,11 @@
 
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
-use ByTIC\NotifierBuilder\Models\Events\Events;
+use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
-use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientsTrait as Recipients;
+use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
+use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
 use Nip\Records\Locator\ModelLocator;
 
 /**
@@ -17,6 +17,7 @@ use Nip\Records\Locator\ModelLocator;
  */
 trait MessagesTrait
 {
+    use HasDatabaseConnectionTrait;
 
     /**
      * @param string|Topic $topic

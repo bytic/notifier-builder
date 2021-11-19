@@ -2,6 +2,8 @@
 
 namespace ByTIC\NotifierBuilder\Models\Recipients;
 
+use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
 use Nip\Records\Locator\ModelLocator;
 
@@ -12,6 +14,23 @@ use Nip\Records\Locator\ModelLocator;
 trait RecipientsTrait
 {
     use \ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordsTrait;
+    use HasDatabaseConnectionTrait;
+
+    protected function initRelations()
+    {
+        parent::initRelations();
+        $this->initRelationsCommon();
+    }
+
+    protected function initRelationsCommon()
+    {
+        $this->initRelationsTopic();
+    }
+
+    protected function initRelationsTopic()
+    {
+        $this->belongsTo('Topic', ['class' => get_class(NotifierBuilderModels::topics()), 'fk' => 'id_topic']);
+    }
 
     /**
      * Returns the target name from model instance
@@ -31,8 +50,7 @@ trait RecipientsTrait
      */
     public static function getRecipientManager($name)
     {
-        $class = self::getRecipientManagerClass($name);
-        return call_user_func([$class, 'instance']);
+        return ModelLocator::get($name);
     }
 
     /**

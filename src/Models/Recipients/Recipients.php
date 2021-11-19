@@ -2,8 +2,8 @@
 
 namespace ByTIC\NotifierBuilder\Models\Recipients;
 
+use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordsTrait;
 use Nip\Records\RecordManager;
-use Nip\Utility\Traits\SingletonTrait;
 
 /**
  * Class Recipients
@@ -11,13 +11,10 @@ use Nip\Utility\Traits\SingletonTrait;
  */
 class Recipients extends RecordManager
 {
-    use SingletonTrait;
     use RecipientsTrait;
+    use CommonRecordsTrait;
 
     public const TABLE = 'notification-recipients';
 
-    public function getRootNamespace()
-    {
-        return 'ByTIC\NotifierBuilder\Models\\';
-    }
+
 }

@@ -18,4 +18,7 @@ return [
         'recipients' => Recipients::TABLE,
         'topics' => Topics::TABLE,
     ],
+    'database' => [
+        'connection' => 'main',
+    ],
 ];

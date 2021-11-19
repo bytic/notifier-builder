@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Models\Topics;
 
+use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordsTrait;
 use Nip\Records\RecordManager;
 use Nip\Utility\Traits\SingletonTrait;
 
@@ -11,13 +12,9 @@ use Nip\Utility\Traits\SingletonTrait;
  */
 class Topics extends RecordManager
 {
-    use SingletonTrait;
     use TopicsTrait;
+    use CommonRecordsTrait;
 
     public const TABLE = 'notification-topics';
 
-    public function getRootNamespace()
-    {
-        return 'ByTIC\NotifierBuilder\Models\\';
-    }
 }

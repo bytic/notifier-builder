@@ -8,15 +8,15 @@ use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
 use ByTIC\NotifierBuilder\Models\Topics\Topics;
-use ByTIC\Payments\Models\PurchaseSessions\PurchaseSessionsTrait;
-use Nip\Records\Locator\ModelLocator;
+use ByTIC\NotifierBuilder\NotifierBuilderProvider;
+use ByTIC\PackageBase\Utility\ModelFinder;
 use Nip\Records\RecordManager;
 
 /**
  * Class NotifierBuilderModels
  * @package ByTIC\NotifierBuilder\Utility
  */
-class NotifierBuilderModels
+class NotifierBuilderModels extends ModelFinder
 {
     protected static $models = [];
 
@@ -52,18 +52,8 @@ class NotifierBuilderModels
         return static::getModels('topics', Topics::class);
     }
 
-    /**
-     * @param string $type
-     * @param string $default
-     * @return mixed|\Nip\Records\AbstractModels\RecordManager
-     */
-    protected static function getModels($type, $default)
+    protected static function packageName(): string
     {
-        if (!isset(static::$models[$type])) {
-            $modelManager = static::getConfigVar($type, $default);
-            return static::$models[$type] = ModelLocator::get($modelManager);
-        }
-
-        return static::$models[$type];
+        return NotifierBuilderProvider::NAME;
     }
 }

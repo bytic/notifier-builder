@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Models\Recipients;
 
+use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
 use ByTIC\NotifierBuilder\Models\Recipients\Types\Collection;
 use ByTIC\NotifierBuilder\Models\Recipients\Types\Single;
@@ -15,7 +16,8 @@ class RecipientsTraitTest extends AbstractTest
 {
     public function testGetTypes()
     {
-        $types = Recipients::instance()->getTypes();
+        $repository = $this->newRepository();
+        $types = $repository->getTypes();
 
         self::assertCount(2, $types);
         self::assertInstanceOf(Collection::class, $types['collection']);
@@ -42,5 +44,11 @@ class RecipientsTraitTest extends AbstractTest
                 'pending'
             ],
         ];
+    }
+
+    protected function newRepository(): Recipients
+    {
+        $repository = new Recipients();
+        return $repository;
     }
 }

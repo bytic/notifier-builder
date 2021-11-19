@@ -2,8 +2,8 @@
 
 namespace ByTIC\NotifierBuilder\Models\Events;
 
+use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordsTrait;
 use Nip\Records\RecordManager;
-use Nip\Utility\Traits\SingletonTrait;
 
 /**
  * Class Events
@@ -11,13 +11,10 @@ use Nip\Utility\Traits\SingletonTrait;
  */
 class Events extends RecordManager
 {
-    use SingletonTrait;
     use EventsTrait;
+    use CommonRecordsTrait;
 
     public const TABLE = 'notification-events';
 
-    public function getRootNamespace()
-    {
-        return 'ByTIC\NotifierBuilder\Models\\';
-    }
+
 }
