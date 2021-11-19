@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Models\AbstractModels;
 
+use ByTIC\Records\Behaviors\HasForms\HasFormsRecordsTrait;
 use Nip\I18n\Translatable\HasTranslations;
 use Nip\Records\Filters\Records\HasFiltersRecordsTrait;
 
@@ -12,6 +13,7 @@ use Nip\Records\Filters\Records\HasFiltersRecordsTrait;
 trait CommonRecordsTrait
 {
     use HasTranslations;
+    use HasFormsRecordsTrait;
     use HasFiltersRecordsTrait;
 
     protected function generateController(): string

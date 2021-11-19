@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Models\Topics;
 
+use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordTrait;
 use Nip\Records\Record;
 
 /**
@@ -11,4 +12,5 @@ use Nip\Records\Record;
 class Topic extends Record
 {
     use TopicTrait;
+    use CommonRecordTrait;
 }

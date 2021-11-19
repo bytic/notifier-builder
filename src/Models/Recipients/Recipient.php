@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Models\Recipients;
 
+use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordTrait;
 use Nip\Records\Record;
 use Nip_Registry;
 
@@ -12,6 +13,7 @@ use Nip_Registry;
 class Recipient extends Record
 {
     use RecipientTrait;
+    use CommonRecordTrait;
 
     public function getRegistry()
     {
