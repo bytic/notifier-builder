@@ -26,6 +26,7 @@
     "bytic/notifier": "^1.0",
     "bytic/package-base": "^1.0",
     "bytic/orm": "^0.9|^1.0",
+    "bytic/orm-filters": "^0.9|^1.0",
     "bytic/translation": "^0.9|^1.0",
     "bytic/models-smart-properties": "^1.0"
   },
