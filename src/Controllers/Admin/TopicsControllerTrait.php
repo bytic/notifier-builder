@@ -4,6 +4,7 @@ namespace ByTIC\NotifierBuilder\Controllers;
 
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait;
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
  * Trait MessagesControllerTrait
@@ -19,10 +20,15 @@ trait MessagesControllerTrait
         parent::view();
 
         $item = $this->getModelFromRequest();
-        $recipient = $item->getNotificationRecipient();
-
-        $notification = NotificationFactory::createFromRecipient($recipient);
-        $notification->setNotificationMessage($item);
-        $this->getView()->set('nMergeFields', $notification->generateMessageBuilder()->getMergeFields());
+        $this->payload()->set('recipients', $item->getRecipients());
     }
+
+    /**
+     * @inheritDoc
+     */
+    protected function generateModelName(): string
+    {
+        return get_class(NotifierBuilderModels::topics());
+    }
+
 }
