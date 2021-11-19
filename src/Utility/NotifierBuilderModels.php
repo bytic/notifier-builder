@@ -66,22 +66,4 @@ class NotifierBuilderModels
 
         return static::$models[$type];
     }
-
-    /**
-     * @param string $type
-     * @param null|string $default
-     * @return string
-     */
-    protected static function getConfigVar($type, $default = null)
-    {
-        if (!function_exists('config')) {
-            return $default;
-        }
-        $varName = 'notifier-builder.models.' . $type;
-        $config = config();
-        if ($config->has($varName)) {
-            return $config->get($varName);
-        }
-        return $default;
-    }
 }

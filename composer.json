@@ -24,6 +24,7 @@
   },
   "require": {
     "bytic/notifier": "^1.0",
+    "bytic/package-base": "^1.0",
     "bytic/orm": "^0.9|^1.0",
     "bytic/models-smart-properties": "^1.0"
   },

@@ -2,34 +2,16 @@
 
 namespace ByTIC\NotifierBuilder;
 
-use ByTIC\Payments\Gateways\Manager;
-use ByTIC\Payments\Utility\PaymentsModels;
-use Nip\Container\ServiceProviders\Providers\AbstractSignatureServiceProvider;
-use Nip\Container\ServiceProviders\Providers\BootableServiceProviderInterface;
+use ByTIC\PackageBase\BaseBootableServiceProvider;
 
 /**
  * Class NotifierBuilderProvider
  * @package ByTIC\NotifierBuilder
  */
-class NotifierBuilderProvider extends AbstractSignatureServiceProvider implements BootableServiceProviderInterface
+class NotifierBuilderProvider extends BaseBootableServiceProvider
 {
-    /**
-     * @inheritdoc
-     */
-    public function register()
+    public function migrations()
     {
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function provides()
-    {
-        return [];
-    }
-
-    public function boot()
-    {
-        $this->getContainer()->get('migrations.migrator')->path(dirname(__DIR__) . '/migrations/');
+        return dirname(__DIR__) . '/migrations/';
     }
 }
