@@ -24,6 +24,14 @@ trait TopicTrait
     protected $targetManager = null;
 
     /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->target .'::'. $this->trigger;
+    }
+
+    /**
      * @param $model
      * @param $trigger
      *

@@ -32,7 +32,7 @@ trait MessagesControllerTrait
      */
     protected function generateModelName(): string
     {
-        return get_class(NotifierBuilderModels::topics());
+        return get_class(NotifierBuilderModels::messages());
     }
 
 }

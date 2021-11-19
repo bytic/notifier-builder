@@ -19,6 +19,11 @@ use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 trait MessageTrait
 {
 
+    public function getName()
+    {
+        return $this->getSubject();
+    }
+
     /**
      * @return string
      */

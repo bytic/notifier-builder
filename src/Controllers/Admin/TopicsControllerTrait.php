@@ -1,18 +1,17 @@
 <?php
 
-namespace ByTIC\NotifierBuilder\Controllers;
+namespace ByTIC\NotifierBuilder\Controllers\Admin;
 
-use ByTIC\NotifierBuilder\Models\Messages\MessageTrait;
-use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
+use ByTIC\NotifierBuilder\Models\Topics\Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
  * Trait MessagesControllerTrait
  * @package ByTIC\NotifierBuilder\Controllers
  *
- * @method MessageTrait getModelFromRequest
+ * @method Topic getModelFromRequest
  */
-trait MessagesControllerTrait
+trait TopicsControllerTrait
 {
 
     public function view()
