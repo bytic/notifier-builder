@@ -20,5 +20,6 @@ return [
     ],
     'database' => [
         'connection' => 'main',
+        'migrations' => true,
     ],
 ];

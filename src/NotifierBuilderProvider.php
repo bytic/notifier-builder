@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder;
 
+use ByTIC\NotifierBuilder\Utility\PackageConfig;
 use ByTIC\PackageBase\BaseBootableServiceProvider;
 
 /**
@@ -12,8 +13,12 @@ class NotifierBuilderProvider extends BaseBootableServiceProvider
 {
     public const NAME = 'notifier-builder';
 
-    public function migrations()
+    public function migrations(): ?string
     {
-        return dirname(__DIR__) . '/migrations/';
+        if (PackageConfig::shouldRunMigrations()) {
+            return dirname(__DIR__) . '/migrations/';
+        }
+
+        return null;
     }
 }
