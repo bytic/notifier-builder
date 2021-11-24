@@ -120,7 +120,7 @@ trait EventTrait
     /**
      * @return Record
      */
-    public function findModel(): Record
+    public function findModel(): ?Record
     {
         $manager = $this->getTopic()->getTargetManager();
 

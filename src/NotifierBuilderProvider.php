@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder;
 
+use ByTIC\NotifierBuilder\Console\Commands\EventsSend;
 use ByTIC\NotifierBuilder\Utility\PackageConfig;
 use ByTIC\PackageBase\BaseBootableServiceProvider;
 
@@ -20,5 +21,12 @@ class NotifierBuilderProvider extends BaseBootableServiceProvider
         }
 
         return null;
+    }
+
+    protected function registerCommands()
+    {
+        $this->commands(
+            EventsSend::class
+        );
     }
 }

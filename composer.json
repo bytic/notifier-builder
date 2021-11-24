@@ -25,6 +25,7 @@
   "require": {
     "bytic/notifier": "^1.0",
     "bytic/package-base": "^1.0",
+    "bytic/console": "^1.0",
     "bytic/orm": "^0.9|^1.0",
     "bytic/orm-filters": "^0.9|^1.0",
     "bytic/orm-behaviors": "^0.9|^1.0",
