@@ -2,7 +2,6 @@
 
 namespace ByTIC\NotifierBuilder\Notifications;
 
-use ByTIC\Notifications\Notification;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
 
 /**
@@ -14,7 +13,7 @@ class NotificationFactory extends \ByTIC\Notifier\Notifications\NotificationFact
     /**
      * @param RecipientTrait $recipient
      * @param array $params
-     * @return Notification
+     * @return \ByTIC\Notifications\Notification|Notification
      */
     public static function createFromRecipient($recipient, $params = [])
     {

@@ -3,7 +3,7 @@
 namespace ByTIC\NotifierBuilder\Controllers\Admin;
 
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait;
-use ByTIC\Notifier\Notifications\NotificationFactory;
+use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
