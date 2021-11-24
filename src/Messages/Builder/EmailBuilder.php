@@ -3,7 +3,7 @@
 namespace ByTIC\NotifierBuilder\Messages\Builder;
 
 use ByTIC\Notifications\Messages\Builder\EmailBuilder as GenericBuilder;
-use ByTIC\Notifier\Messages\Builder\Traits\HasNotificationMessageTrait;
+use ByTIC\NotifierBuilder\Messages\Builder\Traits\HasNotificationMessageTrait;
 use ByTIC\Notifier\Notifications\Notification;
 
 /**

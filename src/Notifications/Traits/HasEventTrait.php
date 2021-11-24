@@ -39,7 +39,7 @@ trait HasEventTrait
     public function hasEvent()
     {
         return is_object($this->event)
-            && in_array(\ByTIC\Notifier\Models\Events\EventTrait::class, Oop::uses($this->event));
+            && in_array(\ByTIC\NotifierBuilder\Models\Events\EventTrait::class, Oop::uses($this->event));
     }
 
     /**
