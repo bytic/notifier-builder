@@ -7,6 +7,7 @@ use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
+use Nip\Records\Locator\ModelLocator;
 
 /**
  * Class TopicsTrait
@@ -81,8 +82,7 @@ trait TopicsTrait
      */
     public static function getTargetManager($name)
     {
-        $class = self::getTargetManagerClass($name);
-        return call_user_func([$class, 'instance']);
+        return ModelLocator::get($name);
     }
 
     /**
@@ -112,6 +112,6 @@ trait TopicsTrait
      */
     public static function getTargetManagerClass($name)
     {
-        return inflector()->pluralize(inflector()->classify($name));
+        return ModelLocator::class($name);
     }
 }

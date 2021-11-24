@@ -4,7 +4,7 @@ namespace ByTIC\NotifierBuilder\Models\Events;
 
 use ByTIC\Notifications\ChannelManager;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
-use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
+use ByTIC\Notifier\Notifications\NotificationFactory;
 
 /**
  * Class EventDispatcher
