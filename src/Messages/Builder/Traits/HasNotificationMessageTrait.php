@@ -1,13 +1,13 @@
 <?php
 
-namespace ByTIC\Notifier\Messages\Builder\Traits;
+namespace ByTIC\NotifierBuilder\Messages\Builder\Traits;
 
-use ByTIC\Notifier\Models\Messages\MessageTrait as Message;
+use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\Notifier\Notifications\Notification;
 
 /**
  * Trait HasNotificationMessageTrait
- * @package ByTIC\Notifications\Messages\Builder\Traits
+ * @package ByTIC\NotifierBuilder\Messages\Builder\Traits
  *
  * @method Notification getNotification
  */

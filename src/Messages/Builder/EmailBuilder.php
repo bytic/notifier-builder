@@ -1,6 +1,6 @@
 <?php
 
-namespace ByTIC\Notifier\Messages\Builder;
+namespace ByTIC\NotifierBuilder\Messages\Builder;
 
 use ByTIC\Notifications\Messages\Builder\EmailBuilder as GenericBuilder;
 use ByTIC\Notifier\Messages\Builder\Traits\HasNotificationMessageTrait;
@@ -9,7 +9,7 @@ use ByTIC\Notifier\Notifications\Notification;
 /**
  * Class AbstractBuilder
  *
- * @package ByTIC\Notifications\Messages\Builder
+ * @package ByTIC\NotifierBuilder\Messages\Builder
  *
  * @method Notification getNotification
  */
