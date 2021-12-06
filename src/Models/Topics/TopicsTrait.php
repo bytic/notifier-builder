@@ -94,7 +94,7 @@ trait TopicsTrait
      */
     public static function modelToTargetName($model)
     {
-        return inflector()->singularize($model->getManager()->getTable());
+        return $model->getManager()->getController();
     }
 
     /**
