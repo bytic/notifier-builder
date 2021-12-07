@@ -48,4 +48,14 @@ trait HasRecipientTrait
     {
         return $this->getRecipient()->getRecipient();
     }
+
+    public function generateEventNotifiablesForRecipient($event, $recipient)
+    {
+        $notifiables = [];
+        foreach ($this->getRecipient()->getNotifiables() as $notifiable) {
+            $notifiables[] = $notifiable;
+        }
+        return $notifiables;
+        return $this->getRecipient()->generateNotifiablesForEvent($this->getEvent());
+    }
 }

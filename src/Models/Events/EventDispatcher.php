@@ -3,7 +3,9 @@
 namespace ByTIC\NotifierBuilder\Models\Events;
 
 use ByTIC\Notifications\ChannelManager;
+use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
+use ByTIC\NotifierBuilder\Notifications\Notification;
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
 
 /**
@@ -64,8 +66,7 @@ class EventDispatcher
                 $notification->setEvent($this->getEvent());
             }
 
-            $notifiables = $recipient->generateNotifiablesForEvent($this->getEvent());
-            $this->sendNotification($notifiables, $notification);
+            $this->sendNotification($notification->notifiablesFor($recipient, $this->getEvent()), $notification);
         }
     }
 

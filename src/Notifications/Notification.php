@@ -2,10 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Notifications;
 
-use ByTIC\Notifier\Messages\Builder\EmailBuilder;
-use ByTIC\NotifierBuilder\Notifications\Traits\HasEventTrait;
-use ByTIC\NotifierBuilder\Notifications\Traits\HasNotificationMessage;
-use ByTIC\NotifierBuilder\Notifications\Traits\HasRecipientTrait;
+use ByTIC\NotifierBuilder\Messages\Builder\EmailBuilder;
 
 /**
  * Class Notification
@@ -13,9 +10,10 @@ use ByTIC\NotifierBuilder\Notifications\Traits\HasRecipientTrait;
  */
 class Notification extends \ByTIC\Notifier\Notifications\Notification
 {
-    use HasEventTrait;
-    use HasRecipientTrait;
-    use HasNotificationMessage;
+    use Traits\HasEventTrait;
+    use Traits\HasRecipientTrait;
+    use Traits\HasNotificationMessage;
+    use Traits\HasNotifiablesTrait;
 
     /**
      * @inheritdoc
