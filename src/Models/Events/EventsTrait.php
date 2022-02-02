@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Events;
 
+use ByTIC\DataObjects\Behaviors\Timestampable\TimestampableManagerTrait;
 use ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordsTrait;
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
@@ -12,6 +15,7 @@ use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 trait EventsTrait
 {
     use RecordsTrait;
+    use TimestampableManagerTrait;
     use HasDatabaseConnectionTrait;
 
     protected function initRelations()

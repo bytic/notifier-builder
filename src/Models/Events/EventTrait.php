@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Events;
 
 use ByTIC\Common\Records\Emails\Builder\BuilderAwareTrait;
+use ByTIC\DataObjects\Behaviors\Timestampable\TimestampableTrait;
 use ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordTrait;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
@@ -21,6 +24,17 @@ use Nip\Records\AbstractModels\Record;
 trait EventTrait
 {
     use RecordTrait;
+    use TimestampableTrait;
+
+    /**
+     * @var string
+     */
+    protected static $createTimestamps = ['created'];
+
+    /**
+     * @var string
+     */
+    protected static $updateTimestamps = ['modified'];
 
     /**
      * @var Record|null
