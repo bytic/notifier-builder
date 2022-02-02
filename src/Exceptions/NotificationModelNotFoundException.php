@@ -2,10 +2,11 @@
 
 namespace ByTIC\NotifierBuilder\Exceptions;
 
+use Exception;
+
 /**
- * Class NotificationModelNotFoundException
- * @package ByTIC\NotifierBuilder\Exceptions
+ * Class NotificationModelNotFoundException.
  */
-class NotificationModelNotFoundException extends \Exception
+class NotificationModelNotFoundException extends Exception
 {
 }

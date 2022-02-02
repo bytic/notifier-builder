@@ -2,16 +2,16 @@
 
 namespace ByTIC\NotifierBuilder\Models\Events;
 
+use ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordsTrait;
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
- * Trait EventsTrait
- * @package ByTIC\NotifierBuilder\Models\Events
+ * Trait EventsTrait.
  */
 trait EventsTrait
 {
-    use \ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordsTrait;
+    use RecordsTrait;
     use HasDatabaseConnectionTrait;
 
     protected function initRelations()
@@ -31,7 +31,7 @@ trait EventsTrait
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function injectParams(&$params = [])
     {
@@ -40,9 +40,6 @@ trait EventsTrait
         parent::injectParams($params);
     }
 
-    /**
-     * @return string
-     */
     protected function generateTable(): string
     {
         return Events::TABLE;

@@ -5,12 +5,10 @@ namespace ByTIC\NotifierBuilder\Models\Recipients;
 use ByTIC\Notifications\Notifiable;
 
 /**
- * Trait IsRecipientTrait
- * @package ByTIC\NotifierBuilder\Models\Recipients
+ * Trait IsRecipientTrait.
  */
 trait IsRecipientTrait
 {
-
     /**
      * @return Notifiable[]
      */

@@ -6,14 +6,12 @@ use ByTIC\NotifierBuilder\Models\Topics\Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
- * Trait MessagesControllerTrait
- * @package ByTIC\NotifierBuilder\Controllers
+ * Trait MessagesControllerTrait.
  *
  * @method Topic getModelFromRequest
  */
 trait TopicsControllerTrait
 {
-
     public function view()
     {
         parent::view();
@@ -23,11 +21,10 @@ trait TopicsControllerTrait
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function generateModelName(): string
     {
         return get_class(NotifierBuilderModels::topics());
     }
-
 }

@@ -3,8 +3,7 @@
 namespace ByTIC\NotifierBuilder\Models\Events\Statuses;
 
 /**
- * Class Pending
- * @package ByTIC\NotifierBuilder\Models\Events\Statuses
+ * Class Pending.
  */
 class Pending extends AbstractStatus
 {

@@ -6,8 +6,7 @@ use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordTrait;
 use Nip\Records\Record;
 
 /**
- * Class Event
- * @package ByTIC\NotifierBuilder\Models\Events
+ * Class Event.
  */
 class Event extends Record
 {

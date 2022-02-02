@@ -2,23 +2,23 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Models\Topics;
 
-use ByTIC\NotifierBuilder\Tests\AbstractTest;
 use ByTIC\NotifierBuilder\Models\Events\Event;
 use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Topics\Topic;
+use ByTIC\NotifierBuilder\Tests\AbstractTest;
+use Mockery;
 use Nip\Records\Locator\ModelLocator;
 use Nip\Records\Record;
 
 /**
- * Class TopicTraitTest
- * @package ByTIC\NotifierBuilder\Tests\Models\Topics
+ * Class TopicTraitTest.
  */
 class TopicTraitTest extends AbstractTest
 {
-    public function test_fireEvent()
+    public function testFireEvent()
     {
-        $eventMock = \Mockery::mock(Event::class)->shouldAllowMockingProtectedMethods()->makePartial();
-        $eventsMock = \Mockery::mock(Events::class)->shouldAllowMockingProtectedMethods()->makePartial();
+        $eventMock = Mockery::mock(Event::class)->shouldAllowMockingProtectedMethods()->makePartial();
+        $eventsMock = Mockery::mock(Events::class)->shouldAllowMockingProtectedMethods()->makePartial();
 
         $eventMock->shouldReceive('getManager')->andReturn($eventsMock);
         $eventMock->shouldReceive('save')->once();

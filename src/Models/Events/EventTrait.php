@@ -3,6 +3,7 @@
 namespace ByTIC\NotifierBuilder\Models\Events;
 
 use ByTIC\Common\Records\Emails\Builder\BuilderAwareTrait;
+use ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordTrait;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
@@ -10,8 +11,7 @@ use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
 use Nip\Records\AbstractModels\Record;
 
 /**
- * Trait EventsTrait
- * @package ByTIC\NotifierBuilder\Models\Events
+ * Trait EventsTrait.
  *
  * @method Topic getTopic()
  *
@@ -20,10 +20,10 @@ use Nip\Records\AbstractModels\Record;
  */
 trait EventTrait
 {
-    use \ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordTrait;
+    use RecordTrait;
 
     /**
-     * @var null|Record
+     * @var Record|null
      */
     protected $model = null;
 
@@ -84,11 +84,12 @@ trait EventTrait
 
     /**
      * @return Record|BuilderAwareTrait
+     *
      * @throws NotificationModelNotFoundException
      */
     public function getModel()
     {
-        if ($this->model === null) {
+        if (null === $this->model) {
             $this->initModel();
         }
 

@@ -2,16 +2,17 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Fixtures\Notifications\Fundraising_Pages\Pending;
 
+use ByTIC\Notifications\Notification;
+
 /**
- * Class OrgSupportersNotification
- * @package ByTIC\NotifierBuilder\Tests\Fixtures\Notifications\Fundraising_Pages\Pending
+ * Class OrgSupportersNotification.
  */
-class OrgSupportersNotification extends \ByTIC\Notifications\Notification
+class OrgSupportersNotification extends Notification
 {
     public $param;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function __construct($param = null)
     {

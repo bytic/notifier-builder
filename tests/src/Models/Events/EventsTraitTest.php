@@ -9,8 +9,7 @@ use ByTIC\NotifierBuilder\Models\Events\Statuses\Skipped;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
 
 /**
- * Class EventsTraitTest
- * @package ByTIC\NotifierBuilder\Tests\Models\Events
+ * Class EventsTraitTest.
  */
 class EventsTraitTest extends AbstractTest
 {
@@ -25,7 +24,7 @@ class EventsTraitTest extends AbstractTest
         self::assertInstanceOf(Skipped::class, $statuses['skipped']);
     }
 
-    public function test_getTable()
+    public function testGetTable()
     {
         $repository = $this->newRepository();
         self::assertSame('notifications-events', $repository->getTable());
@@ -34,6 +33,7 @@ class EventsTraitTest extends AbstractTest
     protected function newRepository()
     {
         $repository = new Events();
+
         return $repository;
     }
 }

@@ -1,16 +1,36 @@
 {
   "name": "bytic/notifier-builder",
-  "type": "library",
-  "license": "MIT",
   "description": "notifier builder module for bytic library",
-  "keywords": [  ],
-  "homepage": "https://github.com/bytic/notifier-builder",
+  "license": "MIT",
+  "type": "library",
+  "keywords": [],
   "authors": [
     {
       "name": "Gabriel Solomon",
       "email": "hello@gabrielsolomon.ro"
     }
   ],
+  "homepage": "https://github.com/bytic/notifier-builder",
+  "require": {
+    "bytic/console": "^1.0",
+    "bytic/models-smart-properties": "^1.0",
+    "bytic/notifier": "^1.0",
+    "bytic/orm": "^0.9 || ^1.0",
+    "bytic/orm-behaviors": "^0.9 || ^1.0",
+    "bytic/orm-filters": "^0.9 || ^1.0",
+    "bytic/package-base": "^1.0",
+    "bytic/translation": "^0.9 || ^1.0"
+  },
+  "require-dev": {
+    "bytic/application": "^1.0",
+    "bytic/dispatcher": "^1.0",
+    "bytic/migrations": "^0.12",
+    "bytic/phpqatools": "^1.0",
+    "bytic/staging": "^1.0",
+    "mockery/mockery": "^1.1"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "ByTIC\\NotifierBuilder\\": "src/"
@@ -21,23 +41,5 @@
       "ByTIC\\NotifierBuilder\\Tests\\": "tests/src",
       "ByTIC\\NotifierBuilder\\Tests\\Fixtures\\": "tests/fixtures"
     }
-  },
-  "require": {
-    "bytic/notifier": "^1.0",
-    "bytic/package-base": "^1.0",
-    "bytic/console": "^1.0",
-    "bytic/orm": "^0.9|^1.0",
-    "bytic/orm-filters": "^0.9|^1.0",
-    "bytic/orm-behaviors": "^0.9|^1.0",
-    "bytic/translation": "^0.9|^1.0",
-    "bytic/models-smart-properties": "^1.0"
-  },
-  "require-dev": {
-    "bytic/application": "^1.0",
-    "bytic/migrations": "^0.12",
-    "bytic/dispatcher": "^1.0",
-    "bytic/staging": "^1.0",
-    "bytic/phpqatools": "^1.0",
-    "mockery/mockery": "^1.1"
   }
 }

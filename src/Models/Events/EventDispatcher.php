@@ -3,14 +3,13 @@
 namespace ByTIC\NotifierBuilder\Models\Events;
 
 use ByTIC\Notifications\ChannelManager;
-use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
+use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
+use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
-use ByTIC\NotifierBuilder\Notifications\Notification;
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
 
 /**
- * Class EventDispatcher
- * @package ByTIC\NotifierBuilder\Models\Events
+ * Class EventDispatcher.
  */
 class EventDispatcher
 {
@@ -23,6 +22,7 @@ class EventDispatcher
 
     /**
      * EventDispatcher constructor.
+     *
      * @param EventTrait $event
      */
     public function __construct($event)
@@ -32,17 +32,19 @@ class EventDispatcher
 
     /**
      * @param $event
+     *
      * @return EventDispatcher
      */
     public static function create($event)
     {
         $dispatcher = new static($event);
+
         return $dispatcher;
     }
 
     /**
-     * @throws \ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException
-     * @throws \ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException
+     * @throws NotificationModelNotFoundException
+     * @throws NotificationRecipientModelNotFoundException
      */
     public function dispatch()
     {
@@ -54,8 +56,9 @@ class EventDispatcher
 
     /**
      * @param RecipientTrait $recipient
-     * @throws \ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException
-     * @throws \ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException
+     *
+     * @throws NotificationModelNotFoundException
+     * @throws NotificationRecipientModelNotFoundException
      */
     public function dispatchForRecipient($recipient)
     {
@@ -92,9 +95,10 @@ class EventDispatcher
      */
     public function getRecipients()
     {
-        if ($this->recipients === null) {
+        if (null === $this->recipients) {
             $this->initRecipients();
         }
+
         return $this->recipients;
     }
 

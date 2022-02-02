@@ -4,11 +4,10 @@ namespace ByTIC\NotifierBuilder\Models\Messages;
 
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
+use Nip\Records\AbstractModels\Record;
 
 /**
- * Class Topic
- *
- * @package ByTIC\NotifierBuilder\Models\Topics
+ * Class Topic.
  *
  * @property int $id_topic
  * @property string $recipient
@@ -18,7 +17,6 @@ use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
  */
 trait MessageTrait
 {
-
     public function getName()
     {
         return $this->getSubject();
@@ -49,7 +47,7 @@ trait MessageTrait
     }
 
     /**
-     * @return Recipient|false|\Nip\Records\AbstractModels\Record
+     * @return Recipient|false|Record
      */
     public function getNotificationRecipient()
     {
@@ -57,6 +55,7 @@ trait MessageTrait
         $params['where'][] = ['`id_topic` = ?', $this->id_topic];
         $params['where'][] = ['`recipient` = ?', $this->recipient];
         $recipientsTable = NotifierBuilderModels::recipients();
+
         return $recipientsTable->findOneByParams($params);
     }
 }

@@ -3,8 +3,7 @@
 namespace ByTIC\NotifierBuilder\Models\Events\Statuses;
 
 /**
- * Class Skipped
- * @package ByTIC\NotifierBuilder\Models\Events\Statuses
+ * Class Skipped.
  */
 class Skipped extends AbstractStatus
 {

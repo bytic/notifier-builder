@@ -8,12 +8,10 @@ use ByTIC\NotifierBuilder\Tests\AbstractTest;
 use ByTIC\NotifierBuilder\Tests\Fixtures\Library\Application;
 
 /**
- * Class NotificationFactoryTest
- * @package ByTIC\NotifierBuilder\Tests\Notifications
+ * Class NotificationFactoryTest.
  */
 class NotificationFactoryTest extends AbstractTest
 {
-
     public function testCreateWithOneParam()
     {
         app()->set('app', new Application());
@@ -47,7 +45,7 @@ class NotificationFactoryTest extends AbstractTest
                 'ByTIC\NotifierBuilder\Tests\Fixtures\Notifications\Fundraising_Pages\Pending\OrgSupportersNotification',
                 'fundraising-page',
                 'pending',
-                'org_supporters'
+                'org_supporters',
             ],
         ];
     }

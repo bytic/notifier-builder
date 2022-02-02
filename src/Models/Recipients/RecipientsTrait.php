@@ -2,18 +2,18 @@
 
 namespace ByTIC\NotifierBuilder\Models\Recipients;
 
+use ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordsTrait;
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
 use Nip\Records\Locator\ModelLocator;
 
 /**
- * Trait RecipientsTrait
- * @package ByTIC\NotifierBuilder\Models\Recipients
+ * Trait RecipientsTrait.
  */
 trait RecipientsTrait
 {
-    use \ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordsTrait;
+    use RecordsTrait;
     use HasDatabaseConnectionTrait;
 
     protected function initRelations()
@@ -33,7 +33,7 @@ trait RecipientsTrait
     }
 
     /**
-     * Returns the target name from model instance
+     * Returns the target name from model instance.
      *
      * @param Record $model Model Record instance
      *
@@ -46,6 +46,7 @@ trait RecipientsTrait
 
     /**
      * @param $name
+     *
      * @return mixed
      */
     public static function getRecipientManager($name)
@@ -55,8 +56,6 @@ trait RecipientsTrait
 
     /**
      * @param string $name
-     *
-     * @return string
      */
     public static function getRecipientManagerClass($name): string
     {
@@ -65,16 +64,12 @@ trait RecipientsTrait
 
     /**
      * @param string $name
-     * @return string
      */
     public static function generateRecipientGetterMethod($name): string
     {
         return 'get' . inflector()->singularize(inflector()->classify($name));
     }
 
-    /**
-     * @return string
-     */
     protected function generateTable(): string
     {
         return Recipients::TABLE;

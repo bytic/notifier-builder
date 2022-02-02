@@ -7,8 +7,7 @@ use Nip\I18n\Translatable\HasTranslations;
 use Nip\Records\Filters\Records\HasFiltersRecordsTrait;
 
 /**
- * Trait CommonRecordsTrait
- * @package ByTIC\NotifierBuilder\Models\AbstractModels
+ * Trait CommonRecordsTrait.
  */
 trait CommonRecordsTrait
 {

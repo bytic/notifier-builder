@@ -2,15 +2,13 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Models\Recipients;
 
-use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
 use ByTIC\NotifierBuilder\Models\Recipients\Types\Collection;
 use ByTIC\NotifierBuilder\Models\Recipients\Types\Single;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
 
 /**
- * Class RecipientsTraitTest
- * @package ByTIC\NotifierBuilder\Tests\Models\Recipients
+ * Class RecipientsTraitTest.
  */
 class RecipientsTraitTest extends AbstractTest
 {
@@ -30,18 +28,19 @@ class RecipientsTraitTest extends AbstractTest
     public function generateNotificationNameData()
     {
         $base = '\ByTIC\NotifierBuilder\Tests\Fixtures\Models\\';
+
         return [
             [
                 $base . 'OrgSupporters\Notifications\Fundraising_Pages\PendingNotification',
                 'org_supporters',
                 'fundraising-page',
-                'pending'
+                'pending',
             ],
             [
                 $base . 'OrgSupporters\Notifications\FundraisingPages\PendingNotification',
                 'org_supporters',
                 'fundraising_page',
-                'pending'
+                'pending',
             ],
         ];
     }
@@ -49,6 +48,7 @@ class RecipientsTraitTest extends AbstractTest
     protected function newRepository(): Recipients
     {
         $repository = new Recipients();
+
         return $repository;
     }
 }

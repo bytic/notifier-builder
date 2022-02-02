@@ -6,8 +6,7 @@ use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordsTrait;
 use Nip\Records\RecordManager;
 
 /**
- * Class Recipients
- * @package ByTIC\NotifierBuilder\Models\Recipients
+ * Class Recipients.
  */
 class Recipients extends RecordManager
 {
@@ -15,6 +14,4 @@ class Recipients extends RecordManager
     use CommonRecordsTrait;
 
     public const TABLE = 'notifications-recipients';
-
-
 }

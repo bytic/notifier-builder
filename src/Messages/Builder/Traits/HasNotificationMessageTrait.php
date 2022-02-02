@@ -2,12 +2,11 @@
 
 namespace ByTIC\NotifierBuilder\Messages\Builder\Traits;
 
-use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\Notifier\Notifications\Notification;
+use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 
 /**
- * Trait HasNotificationMessageTrait
- * @package ByTIC\NotifierBuilder\Messages\Builder\Traits
+ * Trait HasNotificationMessageTrait.
  *
  * @method Notification getNotification
  */
@@ -16,7 +15,7 @@ trait HasNotificationMessageTrait
     protected $notificationMessage = null;
 
     /**
-     * Returns the email subject
+     * Returns the email subject.
      *
      * @return string
      */
@@ -26,9 +25,9 @@ trait HasNotificationMessageTrait
     }
 
     /**
-     * Returns the email content
+     * Returns the email content.
      *
-     * @return null|string
+     * @return string|null
      */
     protected function generateEmailContent()
     {

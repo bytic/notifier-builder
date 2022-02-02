@@ -3,14 +3,12 @@
 namespace ByTIC\NotifierBuilder\Tests\Fixtures\Library;
 
 /**
- * Class Application
- * @package ByTIC\NotifierBuilder\Tests\Fixtures\Library
+ * Class Application.
  */
 class Application extends \Nip\Application\Application
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getRootNamespace()
     {

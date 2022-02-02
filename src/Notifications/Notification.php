@@ -5,8 +5,7 @@ namespace ByTIC\NotifierBuilder\Notifications;
 use ByTIC\NotifierBuilder\Messages\Builder\EmailBuilder;
 
 /**
- * Class Notification
- * @package ByTIC\NotifierBuilder\Notifications
+ * Class Notification.
  */
 class Notification extends \ByTIC\Notifier\Notifications\Notification
 {
@@ -16,7 +15,7 @@ class Notification extends \ByTIC\Notifier\Notifications\Notification
     use Traits\HasNotifiablesTrait;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateMessageBuilder($type = 'mail')
     {

@@ -6,12 +6,10 @@ use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
 use Nip\Utility\Oop;
 
 /**
- * Trait HasEventTrait
- * @package ByTIC\NotifierBuilder\Notifications\Traits
+ * Trait HasEventTrait.
  */
 trait HasEventTrait
 {
-
     /**
      * @var Event
      */
@@ -39,10 +37,10 @@ trait HasEventTrait
     public function hasEvent()
     {
         return is_object($this->event)
-            && in_array(\ByTIC\NotifierBuilder\Models\Events\EventTrait::class, Oop::uses($this->event));
+            && in_array(Event::class, Oop::uses($this->event));
     }
 
-    /**
+    /*
      * //     * @return EmailBuilder
      * //     * @throws NotificationModelNotFoundException
      * //     */

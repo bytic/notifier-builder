@@ -6,12 +6,10 @@ use ByTIC\NotifierBuilder\Utility\PackageConfig;
 use Nip\Database\Connections\Connection;
 
 /**
- * Trait HasDatabaseConnectionTrait
- * @package ByTIC\NotifierBuilder\Models\AbstractModels
+ * Trait HasDatabaseConnectionTrait.
  */
 trait HasDatabaseConnectionTrait
 {
-
     /**
      * @return Connection
      */
@@ -20,4 +18,3 @@ trait HasDatabaseConnectionTrait
         return app('db')->connection(PackageConfig::databaseConnection());
     }
 }
-

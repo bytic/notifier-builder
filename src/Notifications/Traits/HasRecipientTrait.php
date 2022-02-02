@@ -3,11 +3,11 @@
 namespace ByTIC\NotifierBuilder\Notifications\Traits;
 
 use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
+use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
 use Nip\Utility\Oop;
 
 /**
- * Trait HasEventTrait
- * @package ByTIC\NotifierBuilder\Notifications\Traits
+ * Trait HasEventTrait.
  */
 trait HasRecipientTrait
 {
@@ -38,11 +38,11 @@ trait HasRecipientTrait
     public function hasRecipient()
     {
         return is_object($this->recipient)
-            && in_array(\ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait::class, Oop::uses($this->event));
+            && in_array(RecipientTrait::class, Oop::uses($this->event));
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getRecipientName()
     {
@@ -55,7 +55,9 @@ trait HasRecipientTrait
         foreach ($this->getRecipient()->getNotifiables() as $notifiable) {
             $notifiables[] = $notifiable;
         }
+
         return $notifiables;
+
         return $this->getRecipient()->generateNotifiablesForEvent($this->getEvent());
     }
 }

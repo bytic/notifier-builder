@@ -7,8 +7,7 @@ use ByTIC\NotifierBuilder\Utility\PackageConfig;
 use ByTIC\PackageBase\BaseBootableServiceProvider;
 
 /**
- * Class NotifierBuilderProvider
- * @package ByTIC\NotifierBuilder
+ * Class NotifierBuilderProvider.
  */
 class NotifierBuilderProvider extends BaseBootableServiceProvider
 {

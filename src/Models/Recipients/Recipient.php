@@ -4,11 +4,9 @@ namespace ByTIC\NotifierBuilder\Models\Recipients;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordTrait;
 use Nip\Records\Record;
-use Nip_Registry;
 
 /**
- * Class Recipient
- * @package ByTIC\NotifierBuilder\Models\Recipients
+ * Class Recipient.
  */
 class Recipient extends Record
 {

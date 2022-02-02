@@ -6,8 +6,7 @@ use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordsTrait;
 use Nip\Records\RecordManager;
 
 /**
- * Class Events
- * @package ByTIC\NotifierBuilder\Models\Events
+ * Class Events.
  */
 class Events extends RecordManager
 {
@@ -15,6 +14,4 @@ class Events extends RecordManager
     use CommonRecordsTrait;
 
     public const TABLE = 'notifications-events';
-
-
 }

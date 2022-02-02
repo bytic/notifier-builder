@@ -2,11 +2,10 @@
 
 namespace ByTIC\NotifierBuilder\Models\Events\Statuses;
 
-use \ByTIC\Models\SmartProperties\Properties\Types\Generic;
+use ByTIC\Models\SmartProperties\Properties\Types\Generic;
 
 /**
- * Class AbstractStatus
- * @package ByTIC\NotifierBuilder\Models\Events\Statuses
+ * Class AbstractStatus.
  */
 class AbstractStatus extends Generic
 {

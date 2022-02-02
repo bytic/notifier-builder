@@ -2,8 +2,6 @@
 
 namespace ByTIC\NotifierBuilder\Utility;
 
-use ByTIC\MediaLibrary\Models\MediaProperties\MediaProperties;
-use ByTIC\MediaLibrary\Models\MediaRecords\MediaRecords;
 use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
@@ -13,12 +11,11 @@ use ByTIC\PackageBase\Utility\ModelFinder;
 use Nip\Records\RecordManager;
 
 /**
- * Class NotifierBuilderModels
- * @package ByTIC\NotifierBuilder\Utility
+ * Class NotifierBuilderModels.
  */
 class NotifierBuilderModels extends ModelFinder
 {
-    protected static $models = [];
+    protected static array $models = [];
 
     /**
      * @return RecordManager|Events

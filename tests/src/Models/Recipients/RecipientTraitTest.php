@@ -10,8 +10,7 @@ use Mockery as m;
 use Nip\Records\Locator\ModelLocator;
 
 /**
- * Class RecipientTraitTest
- * @package ByTIC\NotifierBuilder\Tests\Models\Recipients
+ * Class RecipientTraitTest.
  */
 class RecipientTraitTest extends AbstractTest
 {
@@ -21,7 +20,7 @@ class RecipientTraitTest extends AbstractTest
         self::assertFalse($recipient->isActive());
     }
 
-    public function test_getNotificationMessage()
+    public function testGetNotificationMessage()
     {
         $recipient = new Recipient();
         $messages = m::mock(Messages::class)->makePartial();

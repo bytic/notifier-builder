@@ -2,34 +2,33 @@
 
 namespace ByTIC\NotifierBuilder\Notifications\Traits;
 
-use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Models\Messages\MessagesTrait as Messages;
+use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
-use Nip\Records\Locator\ModelLocator;
 
 /**
- * Trait HasNotificationMessage
- * @package ByTIC\NotifierBuilder\Notifications\Traits
+ * Trait HasNotificationMessage.
  */
 trait HasNotificationMessage
 {
     /**
-     * Notification Message
+     * Notification Message.
      *
      * @var Message
      */
     protected $notificationMessage = null;
 
     /**
-     * Instances and returns the Notification Message Record
+     * Instances and returns the Notification Message Record.
      *
      * @return Message
      */
     public function getNotificationMessage()
     {
-        if ($this->notificationMessage == null) {
+        if (null == $this->notificationMessage) {
             $this->initNotificationMessage();
         }
+
         return $this->notificationMessage;
     }
 
@@ -50,7 +49,7 @@ trait HasNotificationMessage
     }
 
     /**
-     * Instances the Notigication Record
+     * Instances the Notigication Record.
      *
      * @return void
      */
@@ -61,7 +60,7 @@ trait HasNotificationMessage
 
     /**
      * Return the Message from the database with the text to include
-     * in the notification
+     * in the notification.
      *
      * @return Message
      */
@@ -69,6 +68,7 @@ trait HasNotificationMessage
     {
         /** @var Messages $messages */
         $messages = NotifierBuilderModels::messages();
+
         return $messages::getGlobal(
             $this->getEvent()->getTopic(),
             $this->getRecipientName(),

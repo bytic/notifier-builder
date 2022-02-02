@@ -10,9 +10,8 @@ use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
- * Class Messages
+ * Class Messages.
  *
- * @package ByTIC\NotifierBuilder\Models\Messages
  * @method Message findOneByParams($params)
  */
 trait MessagesTrait
@@ -23,6 +22,7 @@ trait MessagesTrait
      * @param string|Topic $topic
      * @param string|Recipient $recipient
      * @param string $channel
+     *
      * @return Message
      */
     public static function getGlobal($topic, $recipient, $channel)
@@ -33,7 +33,7 @@ trait MessagesTrait
         $params['where'][] = ['`id_topic` = ?', self::formatTopic($topic)];
         $params['where'][] = [
             '`recipient` = ?',
-            is_string($recipient) ? $recipient : $recipientsTable::modelToRecipientName($recipient)
+            is_string($recipient) ? $recipient : $recipientsTable::modelToRecipientName($recipient),
         ];
         $params['where'][] = ['`channel` = ?', $channel];
 
@@ -42,6 +42,7 @@ trait MessagesTrait
 
     /**
      * @param int|string|Topic $topic
+     *
      * @return int
      */
     public static function formatTopic($topic)
@@ -52,12 +53,10 @@ trait MessagesTrait
         if (is_string($topic)) {
             return intval($topic);
         }
+
         return $topic->id;
     }
 
-    /**
-     * @return string
-     */
     protected function generateTable(): string
     {
         return Messages::TABLE;

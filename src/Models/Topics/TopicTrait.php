@@ -9,15 +9,14 @@ use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\RecordManager;
 
 /**
- * Class TopicTrait
- * @package ByTIC\NotifierBuilder\Models\Topics
+ * Class TopicTrait.
  *
  * @property int $id
  * @property string $target
  * @property string $trigger
  *
  * @method Recipient[] getRecipients()
- * @method save()
+ * @method             save()
  */
 trait TopicTrait
 {
@@ -28,7 +27,7 @@ trait TopicTrait
      */
     public function getName()
     {
-        return $this->target .'::'. $this->trigger;
+        return $this->target . '::' . $this->trigger;
     }
 
     /**
@@ -45,6 +44,7 @@ trait TopicTrait
         $event->populateFromTopic($this);
         $event->populateFromModel($model);
         $event->save();
+
         return $event;
     }
 
@@ -69,9 +69,10 @@ trait TopicTrait
      */
     public function getTargetManager()
     {
-        if ($this->targetManager === null) {
+        if (null === $this->targetManager) {
             $this->targetManager = $this->generateTargetManager();
         }
+
         return $this->targetManager;
     }
 
@@ -82,6 +83,7 @@ trait TopicTrait
     {
         /** @var Topics $topicsManager */
         $topicsManager = NotifierBuilderModels::topics();
+
         return $topicsManager::getTargetManager($this->getTarget());
     }
 }

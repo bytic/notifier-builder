@@ -10,8 +10,7 @@ use Nip\Records\AbstractModels\Record;
 use Nip\Records\Locator\ModelLocator;
 
 /**
- * Class TopicsTrait
- * @package ByTIC\NotifierBuilder\Models\Topics
+ * Class TopicsTrait.
  *
  * @method findOneByParams($params)
  */
@@ -42,7 +41,7 @@ trait TopicsTrait
     }
 
     /**
-     * Fire a notification event
+     * Fire a notification event.
      *
      * @param Record $model Model Record instance
      * @param string $trigger Trigger name
@@ -56,12 +55,14 @@ trait TopicsTrait
         if ($topic) {
             return $topic->fireEvent($model);
         }
+
         return false;
     }
 
     /**
      * @param $target
      * @param $trigger
+     *
      * @return false|Topic
      */
     public static function findByTargetTrigger($target, $trigger)
@@ -70,14 +71,16 @@ trait TopicsTrait
         $params = [
             'where' => [
                 ['`target` = ?', $target],
-                ['`trigger` = ?', $trigger]
-            ]
+                ['`trigger` = ?', $trigger],
+            ],
         ];
+
         return $self->findOneByParams($params);
     }
 
     /**
      * @param $name
+     *
      * @return mixed
      */
     public static function getTargetManager($name)
@@ -86,7 +89,7 @@ trait TopicsTrait
     }
 
     /**
-     * Returns the target name from model instance
+     * Returns the target name from model instance.
      *
      * @param Record $model Model Record instance
      *
@@ -97,9 +100,6 @@ trait TopicsTrait
         return $model->getManager()->getController();
     }
 
-    /**
-     * @return string
-     */
     protected function generateTable(): string
     {
         return Topics::TABLE;
