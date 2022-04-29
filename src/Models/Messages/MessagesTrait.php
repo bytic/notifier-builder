@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
+use ByTIC\NotifierBuilder\Messages\Finders\MessagesFinder;
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientsTrait as Recipients;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
-use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
  * Class Messages.
@@ -27,34 +28,36 @@ trait MessagesTrait
      */
     public static function getGlobal($topic, $recipient, $channel)
     {
-        /** @var Recipients $recipientsTable */
-        $recipientsTable = NotifierBuilderModels::recipients();
-        $params['where'] = [];
-        $params['where'][] = ['`id_topic` = ?', self::formatTopic($topic)];
-        $params['where'][] = [
-            '`recipient` = ?',
-            is_string($recipient) ? $recipient : $recipientsTable::modelToRecipientName($recipient),
-        ];
-        $params['where'][] = ['`channel` = ?', $channel];
-
-        return self::instance()->findOneByParams($params);
+        return (new MessagesFinder())->findGlobal($topic, $recipient, $channel);
     }
 
     /**
-     * @param int|string|Topic $topic
-     *
-     * @return int
+     * @param $topic
+     * @param $recipient
+     * @param $channel
+     * @param $parents
+     * @return mixed
      */
-    public static function formatTopic($topic)
+    public static function getGlobalByParents($topic, $recipient, $channel, $parents)
     {
-        if (is_int($topic)) {
-            return $topic;
-        }
-        if (is_string($topic)) {
-            return intval($topic);
-        }
+        return (new MessagesFinder())->findGlobal($topic, $recipient, $channel, $parents);
+    }
 
-        return $topic->id;
+
+    protected function initRelations()
+    {
+        parent::initRelations();
+        $this->initRelationsNotifierBuilder();
+    }
+
+    protected function initRelationsNotifierBuilder()
+    {
+        $this->initRelationsMessageParent();
+    }
+
+    protected function initRelationsMessageParent()
+    {
+        $this->morphTo('Customer', ['morphPrefix' => 'parent']);
     }
 
     protected function generateTable(): string
