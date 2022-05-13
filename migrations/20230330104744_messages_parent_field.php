@@ -26,7 +26,7 @@ final class MessagesParentField extends AbstractMigration
         $table_name = NotifierBuilderModels::messages()->getTable();
         $table = $this->table($table_name);
         $table
-            ->addColumn('parent_id', 'int', ['null' => true, 'after' => 'id_topic'])
+            ->addColumn('parent_id', 'integer', ['null' => true, 'after' => 'id_topic'])
             ->addColumn('parent_type', 'string', ['null' => true, 'after' => 'parent_id']);
 
         $table->addIndex(['id_topic', 'parent_id', 'parent_type', 'recipient', 'channel'], ['unique' => true]);

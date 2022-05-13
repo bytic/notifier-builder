@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Topics;
 
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
@@ -12,8 +14,6 @@ use Nip\Records\RecordManager;
  * Class TopicTrait.
  *
  * @property int $id
- * @property string $target
- * @property string $trigger
  *
  * @method Recipient[] getRecipients()
  * @method             save()
@@ -21,6 +21,9 @@ use Nip\Records\RecordManager;
 trait TopicTrait
 {
     protected $targetManager = null;
+
+    protected ?string $target = null;
+    protected ?string $trigger = null;
 
     /**
      * @return string

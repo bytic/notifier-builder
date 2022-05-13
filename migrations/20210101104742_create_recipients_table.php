@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Phinx\Migration\AbstractMigration;
 
 /**
@@ -22,7 +23,7 @@ final class CreateRecipientsTable extends AbstractMigration
      */
     public function change(): void
     {
-        $table_name = \ByTIC\NotifierBuilder\Utility\NotifierBuilderModels::recipients()->getTable();
+        $table_name = NotifierBuilderModels::recipients()->getTable();
         $exists = $this->hasTable($table_name);
         if ($exists) {
             return;
@@ -31,8 +32,8 @@ final class CreateRecipientsTable extends AbstractMigration
         $table
             ->addColumn('id_topic', 'integer')
             ->addColumn('recipient', 'string')
-            ->addColumn('channel', 'type', ['values' => ['single', 'collection'], 'default' => 'single'])
-            ->addColumn('active', 'type', ['values' => ['yes', 'no'], 'default' => 'yes'])
+            ->addColumn('type', 'enum', ['values' => ['single', 'collection'], 'default' => 'single'])
+            ->addColumn('active', 'enum', ['values' => ['yes', 'no'], 'default' => 'yes'])
             ->addColumn('modified', 'timestamp', [
                 'default' => 'CURRENT_TIMESTAMP',
                 'update' => 'CURRENT_TIMESTAMP',
