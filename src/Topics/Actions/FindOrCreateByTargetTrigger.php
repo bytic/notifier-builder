@@ -56,7 +56,7 @@ class FindOrCreateByTargetTrigger
                 ['`trigger` = ?', $trigger],
             ],
         ];
-        return $this->topicsRepostitory->findOneBy($params);
+        return $this->topicsRepostitory->findOneByParams($params);
     }
 
     /**

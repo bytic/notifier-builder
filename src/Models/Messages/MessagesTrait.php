@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
-use ByTIC\NotifierBuilder\Messages\Finders\MessagesFinder;
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
-use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
  * Class Messages.
@@ -19,31 +17,6 @@ trait MessagesTrait
 {
     use HasDatabaseConnectionTrait;
 
-    /**
-     * @param string|Topic $topic
-     * @param string|Recipient $recipient
-     * @param string $channel
-     *
-     * @return Message
-     */
-    public static function getGlobal($topic, $recipient, $channel)
-    {
-        return (new MessagesFinder())->findGlobal($topic, $recipient, $channel);
-    }
-
-    /**
-     * @param $topic
-     * @param $recipient
-     * @param $channel
-     * @param $parents
-     * @return mixed
-     */
-    public static function getGlobalByParents($topic, $recipient, $channel, $parents)
-    {
-        return (new MessagesFinder())->findGlobal($topic, $recipient, $channel, $parents);
-    }
-
-
     protected function initRelations()
     {
         parent::initRelations();
@@ -52,7 +25,16 @@ trait MessagesTrait
 
     protected function initRelationsNotifierBuilder()
     {
+        $this->initRelationsTopic();
         $this->initRelationsMessageParent();
+    }
+
+    protected function initRelationsTopic()
+    {
+        $this->belongsTo('Topic', [
+            'fk' => 'id_topic',
+            'class' => get_class(NotifierBuilderModels::topics())
+        ]);
     }
 
     protected function initRelationsMessageParent()

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
@@ -17,31 +19,26 @@ use Nip\Records\AbstractModels\Record;
  */
 trait MessageTrait
 {
-    public function getName()
+    protected ?string $subject = null;
+    protected ?string $content = null;
+    protected ?string $channel = null;
+
+    public function getName(): ?string
     {
         return $this->getSubject();
     }
 
-    /**
-     * @return string
-     */
-    public function getSubject()
+    public function getSubject(): ?string
     {
         return $this->subject;
     }
 
-    /**
-     * @return string
-     */
-    public function getContent()
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
-    /**
-     * @return string
-     */
-    public function getChannel()
+    public function getChannel(): ?string
     {
         return $this->channel;
     }
