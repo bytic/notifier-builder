@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordTrait;
