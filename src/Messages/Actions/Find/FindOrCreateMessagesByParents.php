@@ -26,8 +26,8 @@ class FindOrCreateMessagesByParents extends FindOrCreateMessages
      */
     protected function createMessageData(array $data = []): array
     {
-        $parentType = array_shift($this->parents);
         $parentId = array_key_first($this->parents);
+        $parentType = array_shift($this->parents);
 
         $mergeData = [
             'parent_type' => $parentType,

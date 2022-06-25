@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordsTrait;
@@ -14,4 +16,6 @@ class Messages extends RecordManager
     use CommonRecordsTrait;
 
     public const TABLE = 'notifications-messages';
+
+    public const RELATION_PARENT = 'ParentRecord';
 }

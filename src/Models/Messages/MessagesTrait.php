@@ -39,7 +39,7 @@ trait MessagesTrait
 
     protected function initRelationsMessageParent()
     {
-        $this->morphTo('Customer', ['morphPrefix' => 'parent']);
+        $this->morphTo(Messages::RELATION_PARENT, ['morphPrefix' => 'parent']);
     }
 
     protected function generateTable(): string

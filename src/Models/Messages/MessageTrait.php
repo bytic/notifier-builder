@@ -16,12 +16,17 @@ use Nip\Records\AbstractModels\Record;
  * @property string $channel
  * @property string $subject
  * @property string $content
+ *
+ * @method Record getParentRecord()
  */
 trait MessageTrait
 {
     protected ?string $subject = null;
     protected ?string $content = null;
     protected ?string $channel = null;
+
+    protected ?int $parent_id = null;
+    protected ?string $parent_type = null;
 
     public function getName(): ?string
     {
@@ -41,6 +46,11 @@ trait MessageTrait
     public function getChannel(): ?string
     {
         return $this->channel;
+    }
+
+    public function hasParentRecord(): bool
+    {
+        return $this->parent_id != null || $this->parent_type != null;
     }
 
     /**

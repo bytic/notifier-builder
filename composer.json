@@ -41,5 +41,13 @@
       "ByTIC\\NotifierBuilder\\Tests\\": "tests/src",
       "ByTIC\\NotifierBuilder\\Tests\\Fixtures\\": "tests/fixtures"
     }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "ergebnis/composer-normalize": true,
+      "phpstan/extension-installer": true,
+      "bytic/phpqatools": true
+    }
   }
 }
