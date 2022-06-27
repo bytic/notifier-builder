@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Notifications\Traits;
 
+use ByTIC\NotifierBuilder\Messages\Actions\Find\FindAbstract;
+use ByTIC\NotifierBuilder\Messages\Actions\Find\FindOrCreateMessagesByParents;
 use ByTIC\NotifierBuilder\Models\Messages\MessagesTrait as Messages;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
-use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
  * Trait HasNotificationMessage.
@@ -14,38 +17,43 @@ trait HasNotificationMessage
     /**
      * Notification Message.
      *
-     * @var Message
+     * @var Message[]
      */
-    protected $notificationMessage = null;
+    protected $notificationMessage = [
+        'email' => null
+    ];
 
     /**
      * Instances and returns the Notification Message Record.
      *
      * @return Message
      */
-    public function getNotificationMessage()
+    public function getNotificationMessage($channel = null)
     {
-        if (null == $this->notificationMessage) {
-            $this->initNotificationMessage();
+        $channel = $channel ?: 'email';
+        if (!isset($this->notificationMessage[$channel])) {
+            $this->initNotificationMessage($channel);
         }
 
-        return $this->notificationMessage;
+        return $this->notificationMessage[$channel];
     }
 
     /**
      * @param Message $notificationMessage
      */
-    public function setNotificationMessage($notificationMessage)
+    public function setNotificationMessage($notificationMessage, $channel = null)
     {
-        $this->notificationMessage = $notificationMessage;
+        $channel = $channel ?: 'email';
+        $this->notificationMessage[$channel] = $notificationMessage;
     }
 
     /**
      * @return bool
      */
-    public function hasNotificationMessage()
+    public function hasNotificationMessage($channel)
     {
-        return is_object($this->getNotificationMessage());
+        $channel = $channel ?: 'email';
+        return is_object($this->getNotificationMessage($channel));
     }
 
     /**
@@ -53,9 +61,9 @@ trait HasNotificationMessage
      *
      * @return void
      */
-    protected function initNotificationMessage()
+    protected function initNotificationMessage($channel)
     {
-        $this->setNotificationMessage($this->generateNotificationMessage());
+        $this->setNotificationMessage($this->generateNotificationMessage($channel));
     }
 
     /**
@@ -64,15 +72,24 @@ trait HasNotificationMessage
      *
      * @return Message
      */
-    protected function generateNotificationMessage()
+    protected function generateNotificationMessage(?string $channel)
     {
         /** @var Messages $messages */
-        $messages = NotifierBuilderModels::messages();
+        $finder = $this->generateNotificationMessageFinder($channel);
 
-        return $messages::getGlobal(
+        return $finder->fetch();
+    }
+
+    /**
+     * @param string|null $channel
+     * @return FindAbstract
+     */
+    protected function generateNotificationMessageFinder(?string $channel): FindAbstract
+    {
+        return FindOrCreateMessagesByParents::for(
             $this->getEvent()->getTopic(),
             $this->getRecipientName(),
-            'email'
+            $channel
         );
     }
 }
