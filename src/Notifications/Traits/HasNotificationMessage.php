@@ -50,7 +50,7 @@ trait HasNotificationMessage
     /**
      * @return bool
      */
-    public function hasNotificationMessage($channel)
+    public function hasNotificationMessage($channel = null)
     {
         $channel = $channel ?: 'email';
         return is_object($this->getNotificationMessage($channel));
