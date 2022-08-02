@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Notifications;
 
 use ByTIC\NotifierBuilder\Messages\Builder\EmailBuilder;
@@ -9,7 +11,7 @@ use ByTIC\NotifierBuilder\Messages\Builder\EmailBuilder;
  */
 class Notification extends \ByTIC\Notifier\Notifications\Notification
 {
-    use Traits\HasEventTrait;
+    use Traits\HasTopicTrait;
     use Traits\HasRecipientTrait;
     use Traits\HasNotificationMessage;
     use Traits\HasNotifiablesTrait;

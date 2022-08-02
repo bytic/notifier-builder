@@ -19,6 +19,7 @@
     "bytic/orm-behaviors": "^0.9 || ^1.0",
     "bytic/orm-filters": "^0.9 || ^1.0",
     "bytic/package-base": "^1.0",
+    "bytic/mail-templates": "dev-main",
     "bytic/translation": "^0.9 || ^1.0"
   },
   "require-dev": {

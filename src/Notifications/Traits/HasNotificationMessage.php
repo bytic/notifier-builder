@@ -8,6 +8,7 @@ use ByTIC\NotifierBuilder\Messages\Actions\Find\FindAbstract;
 use ByTIC\NotifierBuilder\Messages\Actions\Find\FindOrCreateMessagesByParents;
 use ByTIC\NotifierBuilder\Models\Messages\MessagesTrait as Messages;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
+use Exception;
 
 /**
  * Trait HasNotificationMessage.
@@ -83,11 +84,17 @@ trait HasNotificationMessage
     /**
      * @param string|null $channel
      * @return FindAbstract
+     * @throws Exception
      */
     protected function generateNotificationMessageFinder(?string $channel): FindAbstract
     {
+        $topic = $this->getTopic();
+        $topic = $topic ?: ($this->hasEvent() ? $this->getEvent()->getTopic() : null);
+        if (!is_object($topic)) {
+            throw new Exception('Topic is not set');
+        }
         return FindOrCreateMessagesByParents::for(
-            $this->getEvent()->getTopic(),
+            $topic,
             $this->getRecipientName(),
             $channel
         );
