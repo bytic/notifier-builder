@@ -19,7 +19,7 @@
     "bytic/orm-behaviors": "^0.9 || ^1.0",
     "bytic/orm-filters": "^0.9 || ^1.0",
     "bytic/package-base": "^1.0",
-    "bytic/mail-templates": "dev-main",
+    "bytic/mail-templates": "^1.0",
     "bytic/translation": "^0.9 || ^1.0"
   },
   "require-dev": {
@@ -27,8 +27,7 @@
     "bytic/dispatcher": "^1.0",
     "bytic/migrations": "^0.12",
     "bytic/phpqatools": "^1.0",
-    "bytic/staging": "^1.0",
-    "mockery/mockery": "^1.1"
+    "bytic/staging": "^1.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

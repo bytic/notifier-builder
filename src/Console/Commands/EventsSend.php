@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Console\Commands;
 
 use ByTIC\Console\Command;
@@ -30,7 +32,7 @@ class EventsSend extends Command
     /**
      * {@inheritDoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $result = $this->handle();
         $output->writeln("Sent [{$result}] events");
