@@ -11,8 +11,10 @@ use ByTIC\NotifierBuilder\Messages\Builder\EmailBuilder;
  */
 class Notification extends \ByTIC\Notifier\Notifications\Notification
 {
+    use Traits\HasEventTrait;
     use Traits\HasTopicTrait;
     use Traits\HasRecipientTrait;
+    use Traits\HasSubjectRecordTrait;
     use Traits\HasNotificationMessage;
     use Traits\HasNotifiablesTrait;
 
@@ -26,6 +28,10 @@ class Notification extends \ByTIC\Notifier\Notifications\Notification
 
         if ($this->hasEvent()) {
             $builder->setItem($this->getEvent()->getModel());
+        }
+
+        if ($this->hasSubjectRecord()) {
+            $builder->setItem($this->getSubjectRecord());
         }
 
         if ($this->hasNotificationMessage()) {

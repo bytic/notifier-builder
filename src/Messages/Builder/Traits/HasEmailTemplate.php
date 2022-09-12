@@ -14,9 +14,14 @@ trait HasEmailTemplate
 {
     protected ?AbstractTemplate $emailTemplate = null;
 
+    /**
+     * @return null|string
+     */
     public function generateEmailBody()
     {
-        return $this->getEmailTemplate()->render();
+        return $this->getEmailTemplate()
+            ->with('content', $this->generateEmailContent())
+            ->render();
     }
 
     /**

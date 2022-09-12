@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Recipients;
 
 use ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordsTrait;
@@ -60,14 +62,6 @@ trait RecipientsTrait
     public static function getRecipientManagerClass($name): string
     {
         return ModelLocator::class($name);
-    }
-
-    /**
-     * @param string $name
-     */
-    public static function generateRecipientGetterMethod($name): string
-    {
-        return 'get' . inflector()->singularize(inflector()->classify($name));
     }
 
     protected function generateTable(): string

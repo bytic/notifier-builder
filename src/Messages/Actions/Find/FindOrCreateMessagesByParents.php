@@ -49,14 +49,29 @@ class FindOrCreateMessagesByParents extends FindOrCreateMessages
     {
         $params = $this->findParams();
         foreach ($this->parents as $parentId => $parentType) {
-            $paramsParent = $params;
-            $paramsParent['where'][] = ['`parent_type` = ?', $parentType];
-            $paramsParent['where'][] = ['`parent_id` = ?', $parentId];
-            $message = $this->findOneByParams($paramsParent);
+            $message = $this->findByParents($parentType, $parentId, $params);
             if ($message) {
                 return $message;
             }
         }
+        $message = $this->findByParents(null, null, $params);
+        if ($message) {
+            return $message;
+        }
         return $this->getDefault();
+    }
+
+    /**
+     * @param $type
+     * @param $id
+     * @param $params
+     * @return MessageTrait|Record|null
+     */
+    protected function findByParents($type, $id, $params = null): MessageTrait|Record|null
+    {
+        $params = $params ?? $this->findParams();
+        $params['where'][] = $type === null ? ['`parent_type` IS NULL'] : ['`parent_type` = ?', $type];
+        $params['where'][] = $id === null ? ['`parent_id` IS NULL'] : ['`parent_id` = ?', $id];
+        return $this->findOneByParams($params);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Recipients;
 
 use ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordTrait;
@@ -11,8 +13,8 @@ use ByTIC\NotifierBuilder\Models\Messages\MessagesTrait;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Models\Recipients\Types\AbstractType;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
+use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipients;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
-use Nip\Records\Record;
 use Nip\Records\RecordManager as Records;
 
 /**
@@ -35,7 +37,7 @@ trait RecipientTrait
 
     public function getRecipient(): string
     {
-        return (string) $this->getPropertyRaw('recipient');
+        return (string)$this->getPropertyRaw('recipient');
     }
 
     public function isActive(): bool
@@ -66,20 +68,13 @@ trait RecipientTrait
 
     /**
      * @param Event $event
-     *
-     * @return RecipientTrait
-     *
+     * @return RecipientTrait|null
      * @throws NotificationModelNotFoundException
      */
     public function getRecipientModelFromEvent($event)
     {
-        $method = $this->generateRecipientGetterMethod();
-        $model = $event->getModel();
-        if ($model instanceof Record) {
-            return $model->$method();
-        }
-
-        return null;
+        return GenerateRecipients::forEvent($this, $event)
+            ->generate();
     }
 
     /**
