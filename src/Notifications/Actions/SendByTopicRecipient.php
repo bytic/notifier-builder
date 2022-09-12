@@ -33,12 +33,20 @@ class SendByTopicRecipient
         return $this;
     }
 
+    /**
+     * @param $trigger
+     * @return $this
+     */
     public function withTrigger($trigger): self
     {
         $this->trigger = $trigger;
         return $this;
     }
 
+    /**
+     * @param $name
+     * @return $this
+     */
     public function withRecipientName($name): self
     {
         $this->recipientName = $name;
@@ -57,7 +65,6 @@ class SendByTopicRecipient
             GenerateRecipients::forSubject($recipient, $this->subject)->generate(),
             $notification
         );
-        die('++');
     }
 
     protected function getTopic(): Topic|Record|null
@@ -68,6 +75,10 @@ class SendByTopicRecipient
         return $this->topic;
     }
 
+    /**
+     * @param $subject
+     * @return static
+     */
     public static function for($subject): self
     {
         $self = new self();
