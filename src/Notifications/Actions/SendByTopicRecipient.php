@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace ByTIC\NotifierBuilder\Notifications\Actions;
 
 use ByTIC\Notifications\ChannelManager;
+use ByTIC\Notifications\Notification;
+use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
+use ByTIC\NotifierBuilder\Models\Events\Event;
+use ByTIC\NotifierBuilder\Models\Events\EventTrait;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
 use ByTIC\NotifierBuilder\Models\Topics\Topic;
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
@@ -20,6 +24,8 @@ class SendByTopicRecipient
     protected Record $subject;
     protected ?Recipient $recipient;
     protected ?Topic $topic;
+    protected ?Event $event = null;
+
     protected $target;
     protected $trigger;
 
@@ -44,6 +50,27 @@ class SendByTopicRecipient
     }
 
     /**
+     * @param $topic
+     * @return $this
+     */
+    public function withTopic($topic): self
+    {
+        $this->topic = $topic;
+        return $this;
+    }
+
+    /**
+     * @param Event $event
+     * @return $this
+     */
+    public function withEvent($event): self
+    {
+        $this->event = $event;
+        $this->withTopic($event->getTopic());
+        return $this;
+    }
+
+    /**
      * @param $name
      * @return $this
      */
@@ -55,16 +82,29 @@ class SendByTopicRecipient
 
     public function send()
     {
-        $topic = $this->getTopic();
         $recipient = $this->getRecipient();
+
+        ChannelManager::instance()->send(
+            GenerateRecipients::forSubject($recipient, $this->subject)->generate(),
+            $this->generateNotification()
+        );
+    }
+
+    /**
+     * @return Notification|\ByTIC\NotifierBuilder\Notifications\Notification
+     */
+    protected function generateNotification()
+    {
+        $recipient = $this->getRecipient();
+        $topic = $this->getTopic();
         $notification = NotificationFactory::createFromRecipient($recipient);
         $notification->setTopic($topic);
         $notification->setSubjectRecord($this->subject);
 
-        ChannelManager::instance()->send(
-            GenerateRecipients::forSubject($recipient, $this->subject)->generate(),
-            $notification
-        );
+        if (method_exists($notification, 'setEvent') && is_object($this->event)) {
+            $notification->setEvent($this->event);
+        }
+        return $notification;
     }
 
     protected function getTopic(): Topic|Record|null
@@ -73,6 +113,18 @@ class SendByTopicRecipient
             $this->topic = FindOrCreateByTargetTrigger::for($this->target, $this->trigger);
         }
         return $this->topic;
+    }
+
+    /**
+     * @param Event|EventTrait $event
+     * @return static
+     * @throws NotificationModelNotFoundException
+     */
+    public static function fromEvent(Event $event): self
+    {
+        $self = static::for($event->getModel());
+        $self->withEvent($event);
+        return $self;
     }
 
     /**

@@ -50,7 +50,7 @@ class GenerateRecipients
         if ($this->subject instanceof Record) {
             return $this->subject->$method();
         }
-
+//$notification->notifiablesFor($recipient, $this->getEvent())
         return null;
     }
 

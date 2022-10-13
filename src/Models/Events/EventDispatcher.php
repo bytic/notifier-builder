@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder\Models\Events;
 
-use ByTIC\Notifications\ChannelManager;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
-use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
+use ByTIC\NotifierBuilder\Notifications\Actions\SendByTopicRecipient;
 
 /**
  * Class EventDispatcher.
@@ -63,23 +64,9 @@ class EventDispatcher
     public function dispatchForRecipient($recipient)
     {
         if ($recipient->isActive()) {
-            $notification = NotificationFactory::createFromRecipient($recipient);
-
-            if (method_exists($notification, 'setEvent')) {
-                $notification->setEvent($this->getEvent());
-            }
-
-            $this->sendNotification($notification->notifiablesFor($recipient, $this->getEvent()), $notification);
+            SendByTopicRecipient::fromEvent($this->getEvent())
+                ->send();
         }
-    }
-
-    /**
-     * @param $notifiables
-     * @param $notification
-     */
-    protected function sendNotification($notifiables, $notification)
-    {
-        ChannelManager::instance()->send($notifiables, $notification);
     }
 
     /**
