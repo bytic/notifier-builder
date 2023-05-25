@@ -12,7 +12,7 @@ use ByTIC\NotifierBuilder\Models\Events\EventTrait;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
 use ByTIC\NotifierBuilder\Models\Topics\Topic;
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
-use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipients;
+use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Topics\Actions\FindOrCreateByTargetTrigger;
 use Nip\Records\AbstractModels\Record;
 
@@ -22,7 +22,10 @@ use Nip\Records\AbstractModels\Record;
 class SendByTopicRecipient
 {
     protected Record $subject;
+
     protected ?Recipient $recipient;
+    protected ?string $recipientName = null;
+
     protected ?Topic $topic;
     protected ?Event $event = null;
 
@@ -70,6 +73,12 @@ class SendByTopicRecipient
         return $this;
     }
 
+    public function withRecipient($recipient): self
+    {
+        $this->recipient = $recipient;
+        return $this;
+    }
+
     /**
      * @param $name
      * @return $this
@@ -85,7 +94,8 @@ class SendByTopicRecipient
         $recipient = $this->getRecipient();
 
         ChannelManager::instance()->send(
-            GenerateRecipients::forSubject($recipient, $this->subject)->generate(),
+            GenerateNotifiables::for($recipient, $this->event)
+                ->handle(),
             $this->generateNotification()
         );
     }
@@ -143,7 +153,7 @@ class SendByTopicRecipient
         if (!isset($this->recipient)) {
             $topic = $this->getTopic();
             $this->recipient = $topic->getRecipients()->filter(function (Recipient $recipient) {
-                return $recipient->getRecipient() == 'org_supporters';
+                return $recipient->getRecipient() == $this->recipientName;
             })->current();
         }
         return $this->recipient;

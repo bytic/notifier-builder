@@ -13,6 +13,7 @@ use ByTIC\NotifierBuilder\Models\Messages\MessagesTrait;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Models\Recipients\Types\AbstractType;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
+use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipients;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\RecordManager as Records;
@@ -55,15 +56,8 @@ trait RecipientTrait
      */
     public function generateNotifiablesForEvent($event)
     {
-        $notifiableModels = $this->getRecipientModelFromEvent($event);
-        if ($notifiableModels) {
-            /* @var IsRecipientTrait $notifiableModels */
-            return $notifiableModels->generateNotifiables();
-        }
-
-        throw new NotificationRecipientModelNotFoundException(
-            'No model found in recipient' . $this->getRecipient() . ' from notification event [' . $event->id . ']'
-        );
+        return GenerateNotifiables::for($this, $event)
+            ->handle();
     }
 
     /**

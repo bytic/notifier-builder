@@ -7,6 +7,7 @@ namespace ByTIC\NotifierBuilder\Models\Events;
 use ByTIC\Common\Records\Emails\Builder\BuilderAwareTrait;
 use ByTIC\DataObjects\Behaviors\Timestampable\TimestampableTrait;
 use ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordTrait;
+use ByTIC\NotifierBuilder\Events\Dispatcher\EventDispatcher;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;

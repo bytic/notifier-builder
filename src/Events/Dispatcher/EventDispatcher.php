@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Events;
+namespace ByTIC\NotifierBuilder\Events\Dispatcher;
 
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
+use ByTIC\NotifierBuilder\Models\Events\EventTrait;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
 use ByTIC\NotifierBuilder\Notifications\Actions\SendByTopicRecipient;
 
@@ -63,10 +64,12 @@ class EventDispatcher
      */
     public function dispatchForRecipient($recipient)
     {
-        if ($recipient->isActive()) {
-            SendByTopicRecipient::fromEvent($this->getEvent())
-                ->send();
+        if ($recipient->isActive() !== true) {
+            return;
         }
+        SendByTopicRecipient::fromEvent($this->getEvent())
+            ->withRecipient($recipient)
+            ->send();
     }
 
     /**
