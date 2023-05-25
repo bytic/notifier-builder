@@ -15,14 +15,26 @@ use Nip\Records\RecordManager;
  */
 class NotifierBuilderModels extends ModelFinder
 {
-    protected static array $models = [];
+    public const EVENTS = 'events';
+    public const MESSAGES = 'messages';
+
+    public const RECIPIENTS = 'recipients';
+    public const TOPICS = 'topics';
+
 
     /**
      * @return RecordManager|Events
      */
     public static function events()
     {
-        return static::getModels('events', Events::class);
+        return static::getModels(self::EVENTS, Events::class);
+    }
+
+    /**
+     */
+    public static function eventsTable()
+    {
+        return static::getTable(self::EVENTS, Events::TABLE);
     }
 
     /**
@@ -30,7 +42,12 @@ class NotifierBuilderModels extends ModelFinder
      */
     public static function messages()
     {
-        return static::getModels('messages', Messages::class);
+        return static::getModels(self::MESSAGES, Messages::class);
+    }
+
+    public static function messagesTable()
+    {
+        return static::getTable(self::MESSAGES, Messages::TABLE);
     }
 
     /**
@@ -38,7 +55,12 @@ class NotifierBuilderModels extends ModelFinder
      */
     public static function recipients()
     {
-        return static::getModels('recipients', Recipients::class);
+        return static::getModels(self::RECIPIENTS, Recipients::class);
+    }
+
+    public static function recipientsTable()
+    {
+        return static::getTable(self::RECIPIENTS, Recipients::TABLE);
     }
 
     /**
@@ -46,7 +68,12 @@ class NotifierBuilderModels extends ModelFinder
      */
     public static function topics()
     {
-        return static::getModels('topics', Topics::class);
+        return static::getModels(self::TOPICS, Topics::class);
+    }
+
+    public static function topicsTable()
+    {
+        return static::getTable(self::TOPICS, Topics::TABLE);
     }
 
     protected static function packageName(): string

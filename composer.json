@@ -23,8 +23,8 @@
     "bytic/translation": "^0.9 || ^1.0"
   },
   "require-dev": {
-    "bytic/application": "^1.0",
-    "bytic/dispatcher": "^1.0",
+    "bytic/application": "^1.0 || ^2.0",
+    "bytic/dispatcher": "^1.0 || ^2.0",
     "bytic/migrations": "^0.12",
     "bytic/phpqatools": "^1.0",
     "bytic/staging": "^1.0"
