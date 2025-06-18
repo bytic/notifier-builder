@@ -23,8 +23,9 @@ class RecipientTraitTest extends AbstractTest
     public function testGetNotificationMessage()
     {
         $recipient = new Recipient();
+        $recipient->id_topic = 7;
         $messages = m::mock(Messages::class)->makePartial();
-        $messages->shouldReceive('getGlobal')->andReturn(new Message());
+        $messages->shouldReceive('findOneByParams')->andReturn(new Message());
         ModelLocator::set(Messages::class, $messages);
 
         self::assertInstanceOf(Message::class, $recipient->getNotificationMessage('mychannel'));
