@@ -8,14 +8,13 @@ use ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordTrait;
 use ByTIC\Notifications\Notifiable;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
+use ByTIC\NotifierBuilder\Messages\Actions\Find\FindOrCreateMessageForRecipient;
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
-use ByTIC\NotifierBuilder\Models\Messages\MessagesTrait;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Models\Recipients\Types\AbstractType;
 use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipients;
-use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\RecordManager as Records;
 
 /**
@@ -81,14 +80,8 @@ trait RecipientTrait
      */
     public function getNotificationMessage($channel = 'email')
     {
-        /** @var MessagesTrait $messagesTable */
-        $messagesTable = NotifierBuilderModels::messages();
-
-        return $messagesTable::getGlobal(
-            $this->id_topic,
-            $this->getRecipient(),
-            $channel
-        );
+        $action = FindOrCreateMessageForRecipient::forRecipient($this, $channel);
+        return $action->fetch();
     }
 
     /**
