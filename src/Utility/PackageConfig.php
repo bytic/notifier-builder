@@ -16,7 +16,7 @@ class PackageConfig extends \ByTIC\PackageBase\Utility\PackageConfig
 
     public static function configPath(): string
     {
-        return PathsHelpers::config('/profile-links.php');
+        return PathsHelpers::config('/notifier-builder.php');
     }
 
     /**
