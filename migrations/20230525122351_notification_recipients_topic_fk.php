@@ -25,6 +25,7 @@ final class NotificationRecipientsTopicFk extends AbstractMigration
         $table = $this->table($table_recipients);
 
         $table
+            ->changeColumn('id_topic', 'integer', ['null' => true, 'signed' => false])
             ->addForeignKey(
                 'id_topic',
                 $table_topics,
