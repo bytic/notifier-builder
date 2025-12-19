@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Phinx\Migration\AbstractMigration;
 
 /**
@@ -22,7 +23,7 @@ final class CreateMessagesTable extends AbstractMigration
      */
     public function change(): void
     {
-        $table_name = \ByTIC\NotifierBuilder\Utility\NotifierBuilderModels::messages()->getTable();
+        $table_name = NotifierBuilderModels::messagesTable();
         $exists = $this->hasTable($table_name);
         if ($exists) {
             return;

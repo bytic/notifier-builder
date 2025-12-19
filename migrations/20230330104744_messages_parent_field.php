@@ -23,7 +23,7 @@ final class MessagesParentField extends AbstractMigration
      */
     public function change(): void
     {
-        $table_name = NotifierBuilderModels::messages()->getTable();
+        $table_name = NotifierBuilderModels::messagesTable();
         $table = $this->table($table_name);
         $table
             ->addColumn('parent_id', 'integer', ['null' => true, 'after' => 'id_topic'])
