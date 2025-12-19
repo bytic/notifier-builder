@@ -2,6 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Utility;
 
+use ByTIC\NotifierBuilder\Jobs\Models\Jobs;
 use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
@@ -15,12 +16,12 @@ use Nip\Records\RecordManager;
  */
 class NotifierBuilderModels extends ModelFinder
 {
-    public const EVENTS = 'events';
-    public const MESSAGES = 'messages';
-
-    public const RECIPIENTS = 'recipients';
     public const TOPICS = 'topics';
+    public const RECIPIENTS = 'recipients';
+    public const MESSAGES = 'messages';
+    public const EVENTS = 'events';
 
+    public const JOBS = 'jobs';
 
     /**
      * @return RecordManager|Events
@@ -74,6 +75,19 @@ class NotifierBuilderModels extends ModelFinder
     public static function topicsTable()
     {
         return static::getTable(self::TOPICS, Topics::TABLE);
+    }
+
+    /**
+     * @return RecordManager|Topics
+     */
+    public static function jobs()
+    {
+        return static::getModels(self::JOBS, Jobs::class);
+    }
+
+    public static function jobsTable()
+    {
+        return static::getTable(self::JOBS, Jobs::TABLE);
     }
 
     protected static function packageName(): string
