@@ -43,7 +43,7 @@ final class CreateRecipientsTable extends AbstractMigration
             ]);
 
         $table->addIndex(['id_topic']);
-        $table->addIndex(['channel']);
+        $table->addIndex(['recipient']);
         $table->addIndex(['active']);
 
         $table->save();
