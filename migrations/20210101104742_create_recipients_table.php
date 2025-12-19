@@ -23,7 +23,7 @@ final class CreateRecipientsTable extends AbstractMigration
      */
     public function change(): void
     {
-        $table_name = NotifierBuilderModels::recipients()->getTable();
+        $table_name = NotifierBuilderModels::recipientsTable();
         $exists = $this->hasTable($table_name);
         if ($exists) {
             return;
