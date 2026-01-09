@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ByTIC\NotifierBuilder\Bundle\Admin\Controllers;
 
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
-use ByTIC\NotifierBuilder\Templates\Templates\Template;
-use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait;
+use ByTIC\NotifierBuilder\Templates\Models\Template;
+use ByTIC\NotifierBuilder\Templates\Models\TemplateTrait;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
 

@@ -6,13 +6,13 @@ use ByTIC\AdminBase\Widgets\Cards\Card;
 use ByTIC\Icons\Icons;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
-$notificationRecipients = NotifierBuilderModels::recipients();
+$templatesRecipients = NotifierBuilderModels::templates();
 
 $card = Card::make()
-    ->withTitle($notificationRecipients->getLabel('title'))
+    ->withTitle($templatesRecipients->getLabel('title'))
     ->withIcon(Icons::list_ul())
 //    ->themeSuccess()
     ->wrapBody(false)
-    ->withContent($this->load('/notification-templates/modules/lists/recipient', [], true));
+    ->withContent($this->load('/notifications-templates/modules/lists/recipient', [], true));
 ?>
 <?= $card->render(); ?>

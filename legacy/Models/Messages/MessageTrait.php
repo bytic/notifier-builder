@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
-use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait;
+use ByTIC\NotifierBuilder\Templates\Models\TemplateTrait;
 use Nip\Records\AbstractModels\Record;
 
 /**

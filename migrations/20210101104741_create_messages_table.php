@@ -23,7 +23,7 @@ final class CreateMessagesTable extends AbstractMigration
      */
     public function change(): void
     {
-        $table_name = NotifierBuilderModels::messagesTable();
+        $table_name = NotifierBuilderModels::templatesTable();
         $exists = $this->hasTable($table_name);
         if ($exists) {
             return;

@@ -3,7 +3,7 @@
 namespace ByTIC\NotifierBuilder\Templates\Builder\Traits;
 
 use ByTIC\Notifier\Notifications\Notification;
-use ByTIC\NotifierBuilder\Templates\Templates\Template;
+use ByTIC\NotifierBuilder\Templates\Models\Template;
 use Nip\Records\AbstractModels\Record;
 
 /**

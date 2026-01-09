@@ -21,4 +21,12 @@ trait AbstractControllerTrait
 
         ViewUtility::registerViewPathsAdmin($view);
     }
+
+    /**
+     * @return null
+     */
+    protected function getNotifierBuilderTenant()
+    {
+        return null;
+    }
 }

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ByTIC\NotifierBuilder\Notifications\Traits;
 
 use ByTIC\NotifierBuilder\Templates\Actions\Find\FindAbstract;
-use ByTIC\NotifierBuilder\Templates\Actions\Find\FindOrCreateMessagesByParents;
-use ByTIC\NotifierBuilder\Templates\Templates\TemplatesTrait as Messages;
-use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait as Message;
+use ByTIC\NotifierBuilder\Templates\Actions\Find\FindOrCreateTemplatesByParents;
+use ByTIC\NotifierBuilder\Templates\Models\TemplatesTrait as Messages;
+use ByTIC\NotifierBuilder\Templates\Models\TemplateTrait as Message;
 use Exception;
 
 /**
@@ -93,7 +93,7 @@ trait HasNotificationMessage
         if (!is_object($topic)) {
             throw new Exception('Topic is not set');
         }
-        return FindOrCreateMessagesByParents::for(
+        return FindOrCreateTemplatesByParents::for(
             $topic,
             $this->getRecipientName(),
             $channel

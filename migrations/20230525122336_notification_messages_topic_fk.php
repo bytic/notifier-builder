@@ -20,7 +20,7 @@ final class NotificationMessagesTopicFk extends AbstractMigration
      */
     public function change()
     {
-        $table_messages = NotifierBuilderModels::messagesTable();
+        $table_messages = NotifierBuilderModels::templatesTable();
         $table_topics = NotifierBuilderModels::topicsTable();
         $table = $this->table($table_messages);
 

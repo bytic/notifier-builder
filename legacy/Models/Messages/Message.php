@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
-use ByTIC\NotifierBuilder\Templates\Templates\Template;
+use ByTIC\NotifierBuilder\Templates\Models\Template;
 
 /**
  * Class Message.

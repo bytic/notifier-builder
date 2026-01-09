@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Tests\Messages\Builder;
 
-use ByTIC\NotifierBuilder\Templates\Templates\Template;
+use ByTIC\NotifierBuilder\Templates\Models\Template;
 use ByTIC\NotifierBuilder\Tests\Fixtures\Notifications\Fundraising_Pages\Pending\EmailBuilder;
 use PHPUnit\Framework\TestCase;
 

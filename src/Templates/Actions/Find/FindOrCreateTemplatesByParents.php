@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Templates\Actions\Find;
 
-use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait;
+use ByTIC\NotifierBuilder\Templates\Models\TemplateTrait;
 use Nip\Records\AbstractModels\Record;
 
 /**
  *
  */
-class FindOrCreateMessagesByParents extends FindOrCreateMessages
+class FindOrCreateTemplatesByParents extends FindOrCreateTemplates
 {
     protected array $parents = [];
 
