@@ -10,7 +10,7 @@ use ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordTrait;
 use ByTIC\NotifierBuilder\Events\Dispatcher\EventDispatcher;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
+use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait;
 use ByTIC\NotifierBuilder\Topics\Models\TopicTrait as Topic;
 use Nip\Records\AbstractModels\Record;
 

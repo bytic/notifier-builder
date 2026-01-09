@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Messages\Messages;
-use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
+use ByTIC\NotifierBuilder\Recipients\Models\Recipients;
 use ByTIC\NotifierBuilder\Topics\Models\Topics;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 

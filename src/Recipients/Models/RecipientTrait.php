@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Recipients;
+namespace ByTIC\NotifierBuilder\Recipients\Models;
 
 use ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordTrait;
 use ByTIC\Notifications\Notifiable;
@@ -11,9 +11,9 @@ use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException
 use ByTIC\NotifierBuilder\Messages\Actions\Find\FindOrCreateMessageForRecipient;
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
-use ByTIC\NotifierBuilder\Models\Recipients\Types\AbstractType;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipients;
+use ByTIC\NotifierBuilder\Recipients\Models\Types\AbstractType;
 use ByTIC\NotifierBuilder\Topics\Models\TopicTrait as Topic;
 use Nip\Records\RecordManager as Records;
 

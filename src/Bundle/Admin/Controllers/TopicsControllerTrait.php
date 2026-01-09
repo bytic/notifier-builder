@@ -14,10 +14,13 @@ trait TopicsControllerTrait
 {
     public function view()
     {
-        parent::view();
-
         $item = $this->getModelFromRequest();
-        $this->payload()->set('recipients', $item->getRecipients());
+        $this->payload()->with(
+            [
+                'item' => $item,
+                'recipients' => $item->getRecipients()
+            ]
+        );
     }
 
     /**

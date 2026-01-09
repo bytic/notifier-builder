@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ByTIC\NotifierBuilder\Topics\Models;
 
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
+use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Topics\Actions\FindTopicsTargetManager;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\RecordManager;

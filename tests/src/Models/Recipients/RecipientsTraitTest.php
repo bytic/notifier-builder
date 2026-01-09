@@ -2,9 +2,9 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Models\Recipients;
 
-use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
-use ByTIC\NotifierBuilder\Models\Recipients\Types\Collection;
-use ByTIC\NotifierBuilder\Models\Recipients\Types\Single;
+use ByTIC\NotifierBuilder\Recipients\Models\Recipients;
+use ByTIC\NotifierBuilder\Recipients\Models\Types\Collection;
+use ByTIC\NotifierBuilder\Recipients\Models\Types\Single;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
 
 /**

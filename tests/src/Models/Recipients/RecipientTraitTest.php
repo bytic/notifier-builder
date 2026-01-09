@@ -4,7 +4,7 @@ namespace ByTIC\NotifierBuilder\Tests\Models\Recipients;
 
 use ByTIC\NotifierBuilder\Models\Messages\Message;
 use ByTIC\NotifierBuilder\Models\Messages\Messages;
-use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
+use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
 use Mockery as m;
 use Nip\Records\Locator\ModelLocator;

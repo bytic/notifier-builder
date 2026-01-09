@@ -1,14 +1,22 @@
-<div class="card card-inverse">
-    <div class="card-header">
+<?php
 
-        <h4 class="card-title">
-            <?= translator()->trans('details'); ?>
-        </h4>
-        <div class="card-header-btn">
-            <a href="<?= $this->item->getEditURL(); ?>" class="btn btn-xs btn-info">
-                <?= translator()->trans('edit'); ?>
-            </a>
-        </div>
-    </div>
-    <?= $this->load('../item/details'); ?>
-</div>
+declare(strict_types=1);
+
+use ByTIC\AdminBase\Screen\Actions\Dto\ButtonAction;
+use ByTIC\AdminBase\Widgets\Cards\Card;
+use ByTIC\Icons\Icons;
+
+$card = Card::make()
+    ->withTitle($this->get('modelManager')->getLabel('title.singular'))
+    ->withIcon(Icons::list_ul())
+    ->addHeaderTool(
+        ButtonAction::make()
+            ->setUrl($this->item->getEditURL())
+            ->addHtmlClass('btn-xs')
+            ->setLabel(translator()->trans('edit'))
+    )
+//    ->themeSuccess()
+    ->wrapBody(false)
+    ->withContent($this->load('/' . $this->controller . '/modules/item/details', [], true));
+?>
+<?= $card->render(); ?>

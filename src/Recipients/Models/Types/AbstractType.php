@@ -1,12 +1,14 @@
 <?php
 
-namespace ByTIC\NotifierBuilder\Models\Recipients\Types;
+declare(strict_types=1);
+
+namespace ByTIC\NotifierBuilder\Recipients\Models\Types;
 
 use ByTIC\Models\SmartProperties\Properties\Types\Generic;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
+use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait as Recipient;
 
 /**
  * Class AbstractType.
@@ -17,9 +19,7 @@ abstract class AbstractType extends Generic
 {
     /**
      * @param Event $event
-     *
      * @return int
-     *
      * @throws NotificationRecipientModelNotFoundException
      * @throws NotificationModelNotFoundException
      */

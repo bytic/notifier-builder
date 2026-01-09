@@ -2,7 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Notifications;
 
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
+use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait;
 
 /**
  * Class NotificationFactory.
