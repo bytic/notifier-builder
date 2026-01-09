@@ -9,10 +9,10 @@ use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 $notificationRecipients = NotifierBuilderModels::recipients();
 
 $card = Card::make()
-        ->withTitle($notificationRecipients->getLabel('title'))
-        ->withIcon(Icons::list_ul())
+    ->withTitle($notificationRecipients->getLabel('title'))
+    ->withIcon(Icons::list_ul())
 //    ->themeSuccess()
-        ->wrapBody(false)
-    ->withContent($this->load('/notifications-recipients/modules/lists/topic', [], true));
+    ->wrapBody(false)
+    ->withContent($this->load('/notification-templates/modules/lists/recipient', [], true));
 ?>
 <?= $card->render(); ?>

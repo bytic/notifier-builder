@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Utility;
 
@@ -13,6 +14,11 @@ class PackageConfig extends \ByTIC\PackageBase\Utility\PackageConfig
 {
     use SingletonTrait;
     protected $name = NotifierBuilderProvider::NAME;
+
+    public static function configPath(): string
+    {
+        return PathsHelpers::config('/notifier-builder.php');
+    }
 
     /**
      * @throws Exception

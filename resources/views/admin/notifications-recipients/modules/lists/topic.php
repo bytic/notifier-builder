@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 /** @var Recipient[] $recipients */
 
+use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipientStatusLabel;
 use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
@@ -38,7 +39,7 @@ endif; ?>
         ?>
         <tr>
             <td>
-                <a href="">
+                <a href="<?= $url; ?>">
                     <?= $recipient->getRecipient(); ?>
                 </a>
             </td>
@@ -46,18 +47,7 @@ endif; ?>
                 <?= $recipient->getType()->getLabelHTML(); ?>
             </td>
             <td>
-                <?php
-                if ($recipient->isActive()): ?>
-                    <span class="badge text-bg--success">
-                        <?= translator()->trans('yes'); ?>
-                    </span>
-                <?php
-                else: ?>
-                    <span class="badge text-bg--danger">
-                        <?= translator()->trans('no'); ?>
-                    </span>
-                <?php
-                endif; ?>
+                <?= GenerateRecipientStatusLabel::for($recipient)->html(); ?>
             </td>
             <td>
                 <a href="<?= $url; ?>" class="btn btn-sm btn-outline-primary">

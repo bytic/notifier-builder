@@ -15,7 +15,7 @@ use Nip\Records\AbstractModels\Record;
  *
  * @method TemplateTrait getModelFromRequest
  */
-trait MessagesControllerTrait
+trait TemplatesControllerTrait
 {
     public function view()
     {
