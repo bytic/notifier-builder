@@ -1,6 +1,6 @@
 <?php
 
-namespace ByTIC\NotifierBuilder\Controllers\Admin;
+namespace ByTIC\NotifierBuilder\Bundle\Admin\Controllers;
 
 use ByTIC\NotifierBuilder\Models\Topics\Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;

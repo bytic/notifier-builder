@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Bundle\Forms\Admin;
+namespace ByTIC\NotifierBuilder\Bundle\Admin\Forms\Messages;
 
 trait MessagesFormTrait
 {
