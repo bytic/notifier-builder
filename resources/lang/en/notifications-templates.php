@@ -9,4 +9,5 @@ return [
 
     'notifications-templates.messages.delete' => 'Message deleted.',
     'notifications-templates.messages.update' => 'Message updated.',
+    'notifications-templates.messages.edit' => 'Edit message.',
 ];
