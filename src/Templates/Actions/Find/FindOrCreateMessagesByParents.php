@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Messages\Actions\Find;
+namespace ByTIC\NotifierBuilder\Templates\Actions\Find;
 
-use ByTIC\NotifierBuilder\Models\Messages\MessageTrait;
+use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait;
 use Nip\Records\AbstractModels\Record;
 
 /**
@@ -43,7 +43,7 @@ class FindOrCreateMessagesByParents extends FindOrCreateMessages
     }
 
     /**
-     * @return MessageTrait|Record|null
+     * @return TemplateTrait|Record|null
      */
     public function fetch()
     {
@@ -65,9 +65,9 @@ class FindOrCreateMessagesByParents extends FindOrCreateMessages
      * @param $type
      * @param $id
      * @param $params
-     * @return MessageTrait|Record|null
+     * @return TemplateTrait|Record|null
      */
-    protected function findByParents($type, $id, $params = null): MessageTrait|Record|null
+    protected function findByParents($type, $id, $params = null): TemplateTrait|Record|null
     {
         $params = $params ?? $this->findParams();
         $params['where'][] = $type === null ? ['`parent_type` IS NULL'] : ['`parent_type` = ?', $type];

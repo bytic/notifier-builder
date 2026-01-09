@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Messages;
+namespace ByTIC\NotifierBuilder\Templates\Templates;
 
 use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
 
 /**
- * Class Topic.
+ * Class TemplateTrait.
  *
  * @property int $id_topic
  * @property string $recipient
@@ -19,7 +19,7 @@ use Nip\Records\AbstractModels\Record;
  *
  * @method Record getParentRecord()
  */
-trait MessageTrait
+trait TemplateTrait
 {
     protected ?string $subject = null;
     protected ?string $content = null;

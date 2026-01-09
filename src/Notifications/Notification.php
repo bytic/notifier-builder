@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Notifications;
 
-use ByTIC\NotifierBuilder\Messages\Builder\EmailBuilder;
+use ByTIC\NotifierBuilder\Templates\Builder\EmailBuilder;
 
 /**
  * Class Notification.
@@ -35,7 +35,7 @@ class Notification extends \ByTIC\Notifier\Notifications\Notification
         }
 
         if ($this->hasNotificationMessage()) {
-            $builder->setNotificationMessage($this->getNotificationMessage());
+            $builder->setNotificationTemplate($this->getNotificationMessage());
         }
 
         return $builder;

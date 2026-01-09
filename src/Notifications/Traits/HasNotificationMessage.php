@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Notifications\Traits;
 
-use ByTIC\NotifierBuilder\Messages\Actions\Find\FindAbstract;
-use ByTIC\NotifierBuilder\Messages\Actions\Find\FindOrCreateMessagesByParents;
-use ByTIC\NotifierBuilder\Models\Messages\MessagesTrait as Messages;
-use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
+use ByTIC\NotifierBuilder\Templates\Actions\Find\FindAbstract;
+use ByTIC\NotifierBuilder\Templates\Actions\Find\FindOrCreateMessagesByParents;
+use ByTIC\NotifierBuilder\Templates\Templates\TemplatesTrait as Messages;
+use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait as Message;
 use Exception;
 
 /**

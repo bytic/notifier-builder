@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Messages\Factories;
+namespace ByTIC\NotifierBuilder\Templates\Factories;
 
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;

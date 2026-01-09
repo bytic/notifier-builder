@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Messages\Actions\Find;
+namespace ByTIC\NotifierBuilder\Templates\Actions\Find;
 
 /**
  *

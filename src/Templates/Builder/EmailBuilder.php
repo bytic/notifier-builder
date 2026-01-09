@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Messages\Builder;
+namespace ByTIC\NotifierBuilder\Templates\Builder;
 
 use ByTIC\Notifications\Messages\Builder\AbstractBuilder as GenericBuilder;
 use ByTIC\Notifications\Notifiable;
@@ -128,6 +128,5 @@ abstract class EmailBuilder extends GenericBuilder
     {
         return ModelLocator::get('emails');
     }
-
 
 }

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Messages\Actions\Find;
+namespace ByTIC\NotifierBuilder\Templates\Actions\Find;
 
-use ByTIC\NotifierBuilder\Messages\Factories\MessageFactory;
-use ByTIC\NotifierBuilder\Models\Messages\Messages;
-use ByTIC\NotifierBuilder\Models\Messages\MessageTrait;
 use ByTIC\NotifierBuilder\Recipients\Models\RecipientsTrait as Recipients;
+use ByTIC\NotifierBuilder\Templates\Factories\MessageFactory;
+use ByTIC\NotifierBuilder\Templates\Templates\Templates;
+use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait;
 use ByTIC\NotifierBuilder\Topics\Models\Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Closure;
@@ -20,7 +20,7 @@ use Nip\Records\RecordManager;
 abstract class FindAbstract
 {
     /**
-     * @var Messages|mixed|RecordManager
+     * @var Templates|mixed|RecordManager
      */
     protected $repositoryMessages;
 
@@ -114,7 +114,7 @@ abstract class FindAbstract
     }
 
     /**
-     * @return MessageTrait|Record|null
+     * @return TemplateTrait|Record|null
      */
     public function fetch()
     {

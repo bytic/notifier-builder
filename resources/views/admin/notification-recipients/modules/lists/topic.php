@@ -8,6 +8,8 @@ use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 $recipients = $this->recipients;
+
+$templatesRepository = NotifierBuilderModels::templates();
 $recipientsRepository = NotifierBuilderModels::recipients();
 ?>
 
@@ -25,14 +27,20 @@ endif; ?>
         <th><?= $recipientsRepository->getLabel('title.singular'); ?></th>
         <th><?= $recipientsRepository->getLabel('type'); ?></th>
         <th><?= translator()->trans('active'); ?></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
     <?php
     foreach ($recipients as $recipient): ?>
+        <?php
+        $url = $recipient->getURL();
+        ?>
         <tr>
             <td>
-                <?= $recipient->getRecipient(); ?>
+                <a href="">
+                    <?= $recipient->getRecipient(); ?>
+                </a>
             </td>
             <td>
                 <?= $recipient->getType()->getLabelHTML(); ?>
@@ -40,16 +48,21 @@ endif; ?>
             <td>
                 <?php
                 if ($recipient->isActive()): ?>
-                    <span class="badge badge-success">
+                    <span class="badge text-bg--success">
                         <?= translator()->trans('yes'); ?>
                     </span>
                 <?php
                 else: ?>
-                    <span class="badge badge-danger">
+                    <span class="badge text-bg--danger">
                         <?= translator()->trans('no'); ?>
                     </span>
                 <?php
                 endif; ?>
+            </td>
+            <td>
+                <a href="<?= $url; ?>" class="btn btn-sm btn-outline-primary">
+                    <?= $templatesRepository->getLabel('title') ?>
+                </a>
             </td>
         </tr>
     <?php

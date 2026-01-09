@@ -4,9 +4,9 @@ namespace ByTIC\NotifierBuilder\Utility;
 
 use ByTIC\NotifierBuilder\Jobs\Models\Jobs;
 use ByTIC\NotifierBuilder\Models\Events\Events;
-use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use ByTIC\NotifierBuilder\NotifierBuilderProvider;
 use ByTIC\NotifierBuilder\Recipients\Models\Recipients;
+use ByTIC\NotifierBuilder\Templates\Templates\Templates;
 use ByTIC\NotifierBuilder\Topics\Models\Topics;
 use ByTIC\PackageBase\Utility\ModelFinder;
 use Nip\Records\RecordManager;
@@ -18,9 +18,14 @@ class NotifierBuilderModels extends ModelFinder
 {
     public const TOPICS = 'topics';
     public const RECIPIENTS = 'recipients';
-    public const MESSAGES = 'messages';
-    public const EVENTS = 'events';
+    public const TEMPLATES = 'templates';
 
+    /**
+     * @deprecated use TEMPLATES instead
+     */
+    public const MESSAGES = self::TEMPLATES;
+
+    public const EVENTS = 'events';
     public const JOBS = 'jobs';
 
     /**
@@ -39,16 +44,34 @@ class NotifierBuilderModels extends ModelFinder
     }
 
     /**
-     * @return RecordManager|Messages
+     * @return RecordManager|Templates
+     * @deprecated use templates() instead
      */
     public static function messages()
     {
-        return static::getModels(self::MESSAGES, Messages::class);
+        return static::getModels(self::MESSAGES, Templates::class);
     }
 
+    /**
+     * @return mixed|string
+     * @deprecated use templatesTable() instead
+     */
     public static function messagesTable()
     {
-        return static::getTable(self::MESSAGES, Messages::TABLE);
+        return static::getTable(self::MESSAGES, Templates::TABLE);
+    }
+
+    /**
+     * @return RecordManager|Templates
+     */
+    public static function templates()
+    {
+        return static::getModels(self::TEMPLATES, Templates::class);
+    }
+
+    public static function templatesTable()
+    {
+        return static::getTable(self::TEMPLATES, Templates::TABLE);
     }
 
     /**

@@ -13,4 +13,6 @@ return [
 
     'notifications-recipients.messages.delete' => 'Destinatar şters.',
     'notifications-recipients.messages.update' => 'Destinatar modificat',
+
+    'notifications-recipients.messages.dnx' => ' Nu există destinatari definiţi.',
 ];
