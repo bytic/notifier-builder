@@ -33,7 +33,10 @@ class FindOrCreateTemplatesByParents extends FindOrCreateTemplates
             'parent_type' => $parentType,
             'parent_id' => $parentId,
         ];
-        $globalMessage = parent::fetch();
+
+        $params = $this->findParams();
+        $globalMessage = $this->repositoryMessages->findOneByParams($params);
+
         if ($globalMessage) {
             $mergeData['subject'] = $globalMessage->getSubject();
             $mergeData['content'] = $globalMessage->getContent();
