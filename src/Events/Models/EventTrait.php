@@ -87,6 +87,7 @@ trait EventTrait
     public function populateFromTopic($topic)
     {
         $this->id_topic = $topic->id;
+        return $this;
     }
 
     /**
@@ -97,6 +98,7 @@ trait EventTrait
         $this->setModel($model);
         $this->target_id = $model->id;
         $this->target_type = $model->getManager()->getMorphName();
+        return $this;
     }
 
     /**
