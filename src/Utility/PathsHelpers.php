@@ -60,8 +60,8 @@ class PathsHelpers
         return static::resources() . '/lang' . $path;
     }
 
-    public static function views($path = null): string
+    public static function bundle($path = null): string
     {
-        return static::resources() . '/views' . $path;
+        return static::basePath() . '/src/Budle' . $path;
     }
 }

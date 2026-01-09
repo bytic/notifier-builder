@@ -24,8 +24,10 @@
   },
   "require-dev": {
     "bytic/application": "^1.0 || ^2.0",
+    "bytic/controllers": "^1.0 || ^2.0",
+    "bytic/controllers-extra": "^1.0 || ^2.0",
     "bytic/dispatcher": "^1.0 || ^2.0",
-    "bytic/migrations": "^0.12|^0.13",
+    "bytic/migrations": "^0.12||^0.13",
     "bytic/phpqatools": "^1.0",
     "bytic/staging": "^1.0|^2.0"
   },

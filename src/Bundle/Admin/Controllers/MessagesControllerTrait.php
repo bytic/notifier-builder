@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Controllers\Admin;
+namespace ByTIC\NotifierBuilder\Bundle\Admin\Controllers;
 
 use ByTIC\NotifierBuilder\Models\Messages\Message;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait;
