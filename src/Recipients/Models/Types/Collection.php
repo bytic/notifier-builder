@@ -1,6 +1,6 @@
 <?php
 
-namespace ByTIC\NotifierBuilder\Models\Recipients\Types;
+namespace ByTIC\NotifierBuilder\Recipients\Models\Types;
 
 /**
  * Class Collection.

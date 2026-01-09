@@ -6,7 +6,7 @@ namespace ByTIC\NotifierBuilder\Recipients\Actions;
 
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Models\Events\Event;
-use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
+use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
 use Nip\Records\Record;
 
 /**

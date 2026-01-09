@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Models\Messages;
 
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
+use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
 

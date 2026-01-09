@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Recipients;
+namespace ByTIC\NotifierBuilder\Recipients\Models;
 
 use ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordsTrait;
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;

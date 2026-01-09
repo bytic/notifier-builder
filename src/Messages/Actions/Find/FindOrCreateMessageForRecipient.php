@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Messages\Actions\Find;
 
-use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
+use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
 
 /**
  *

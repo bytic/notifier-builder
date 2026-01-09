@@ -2,8 +2,8 @@
 
 namespace ByTIC\NotifierBuilder\Notifications\Traits;
 
-use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait;
+use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
+use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait;
 use Nip\Utility\Oop;
 
 /**

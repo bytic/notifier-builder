@@ -24,6 +24,7 @@
   },
   "require-dev": {
     "bytic/application": "^1.0 || ^2.0",
+    "bytic/admin-base": "^1.0|^2.0",
     "bytic/controllers": "^1.0 || ^2.0",
     "bytic/controllers-extra": "^1.0 || ^2.0",
     "bytic/dispatcher": "^1.0 || ^2.0",

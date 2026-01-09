@@ -7,7 +7,7 @@ namespace ByTIC\NotifierBuilder\Messages\Actions\Find;
 use ByTIC\NotifierBuilder\Messages\Factories\MessageFactory;
 use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait;
-use ByTIC\NotifierBuilder\Models\Recipients\RecipientsTrait as Recipients;
+use ByTIC\NotifierBuilder\Recipients\Models\RecipientsTrait as Recipients;
 use ByTIC\NotifierBuilder\Topics\Models\Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Closure;
