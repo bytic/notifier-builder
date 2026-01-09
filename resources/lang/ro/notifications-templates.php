@@ -9,4 +9,5 @@ return [
 
     'notifications-templates.messages.delete' => 'Mesaj şters.',
     'notifications-templates.messages.update' => 'Mesaj modificat',
+    'notifications-templates.messages.edit' => 'Mesaj salvat',
 ];
