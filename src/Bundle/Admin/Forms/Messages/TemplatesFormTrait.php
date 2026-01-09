@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Bundle\Admin\Forms\Messages;
 
-trait MessagesFormTrait
+/**
+ *
+ */
+trait TemplatesFormTrait
 {
-    public function init()
+    public function initialize(): void
     {
-        parent::init();
+        parent::initialize();
 
         $this->initCommon();
     }
