@@ -12,8 +12,8 @@ use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipients;
 use ByTIC\NotifierBuilder\Recipients\Models\Types\AbstractType;
-use ByTIC\NotifierBuilder\Templates\Actions\Find\FindOrCreateMessageForRecipient;
-use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait as Message;
+use ByTIC\NotifierBuilder\Templates\Actions\Find\FindOrCreateTemplateForRecipient;
+use ByTIC\NotifierBuilder\Templates\Models\TemplateTrait as Message;
 use ByTIC\NotifierBuilder\Topics\Models\TopicTrait as Topic;
 use Nip\Records\RecordManager as Records;
 
@@ -43,6 +43,12 @@ trait RecipientTrait
     public function isActive(): bool
     {
         return 'yes' == $this->active;
+    }
+
+    public function getChannelsArray(): array
+    {
+        $channels = (string)$this->getPropertyRaw('channels');
+        return array_filter(array_map('trim', explode(',', $channels)));
     }
 
     /**
@@ -80,7 +86,7 @@ trait RecipientTrait
      */
     public function getNotificationMessage($channel = 'email')
     {
-        $action = FindOrCreateMessageForRecipient::forRecipient($this, $channel);
+        $action = FindOrCreateTemplateForRecipient::forRecipient($this, $channel);
         return $action->fetch();
     }
 

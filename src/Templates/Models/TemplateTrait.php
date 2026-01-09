@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Templates\Templates;
+namespace ByTIC\NotifierBuilder\Templates\Models;
 
 use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
@@ -46,6 +46,16 @@ trait TemplateTrait
     public function getChannel(): ?string
     {
         return $this->channel;
+    }
+
+    public function getParentId(): null|int|string
+    {
+        return $this->getPropertyRaw('parent_id');
+    }
+
+    public function getParentType(): null|string
+    {
+        return $this->getPropertyRaw('parent_type');
     }
 
     public function hasParentRecord(): bool

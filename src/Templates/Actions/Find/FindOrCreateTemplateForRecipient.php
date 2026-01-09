@@ -9,7 +9,7 @@ use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
 /**
  *
  */
-class FindOrCreateMessageForRecipient extends FindOrCreateMessages
+class FindOrCreateTemplateForRecipient extends FindOrCreateTemplates
 {
     /**
      * @param Recipient $recipient

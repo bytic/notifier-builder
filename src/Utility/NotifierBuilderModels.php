@@ -6,7 +6,7 @@ use ByTIC\NotifierBuilder\Jobs\Models\Jobs;
 use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\NotifierBuilderProvider;
 use ByTIC\NotifierBuilder\Recipients\Models\Recipients;
-use ByTIC\NotifierBuilder\Templates\Templates\Templates;
+use ByTIC\NotifierBuilder\Templates\Models\Templates;
 use ByTIC\NotifierBuilder\Topics\Models\Topics;
 use ByTIC\PackageBase\Utility\ModelFinder;
 use Nip\Records\RecordManager;

@@ -7,7 +7,7 @@ namespace ByTIC\NotifierBuilder\Templates\Actions\Find;
 /**
  *
  */
-class FindOrCreateMessages extends FindAbstract
+class FindOrCreateTemplates extends FindAbstract
 {
 
 }

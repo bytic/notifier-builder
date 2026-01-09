@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Templates\Templates;
+namespace ByTIC\NotifierBuilder\Templates\Models;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
-use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait as Message;
+use ByTIC\NotifierBuilder\Templates\Models\TemplateTrait as Message;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**

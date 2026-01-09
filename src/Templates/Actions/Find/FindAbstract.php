@@ -6,8 +6,8 @@ namespace ByTIC\NotifierBuilder\Templates\Actions\Find;
 
 use ByTIC\NotifierBuilder\Recipients\Models\RecipientsTrait as Recipients;
 use ByTIC\NotifierBuilder\Templates\Factories\MessageFactory;
-use ByTIC\NotifierBuilder\Templates\Templates\Templates;
-use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait;
+use ByTIC\NotifierBuilder\Templates\Models\Templates;
+use ByTIC\NotifierBuilder\Templates\Models\TemplateTrait;
 use ByTIC\NotifierBuilder\Topics\Models\Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Closure;

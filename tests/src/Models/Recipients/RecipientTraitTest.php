@@ -3,8 +3,8 @@
 namespace ByTIC\NotifierBuilder\Tests\Models\Recipients;
 
 use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
-use ByTIC\NotifierBuilder\Templates\Templates\Template;
-use ByTIC\NotifierBuilder\Templates\Templates\Templates;
+use ByTIC\NotifierBuilder\Templates\Models\Template;
+use ByTIC\NotifierBuilder\Templates\Models\Templates;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
 use Mockery as m;
 use Nip\Records\Locator\ModelLocator;
