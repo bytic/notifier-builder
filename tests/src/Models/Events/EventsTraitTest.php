@@ -2,10 +2,10 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Models\Events;
 
-use ByTIC\NotifierBuilder\Models\Events\Events;
-use ByTIC\NotifierBuilder\Models\Events\Statuses\Pending;
-use ByTIC\NotifierBuilder\Models\Events\Statuses\Sent;
-use ByTIC\NotifierBuilder\Models\Events\Statuses\Skipped;
+use ByTIC\NotifierBuilder\Events\Models\Events;
+use ByTIC\NotifierBuilder\Events\Models\Statuses\Pending;
+use ByTIC\NotifierBuilder\Events\Models\Statuses\Sent;
+use ByTIC\NotifierBuilder\Events\Models\Statuses\Skipped;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
 
 /**

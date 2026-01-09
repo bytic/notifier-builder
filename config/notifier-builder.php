@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use ByTIC\NotifierBuilder\Jobs\Models\Jobs;
-use ByTIC\NotifierBuilder\Models\Events\Events;
+use ByTIC\NotifierBuilder\Events\Models\Events;
 use ByTIC\NotifierBuilder\Recipients\Models\Recipients;
 use ByTIC\NotifierBuilder\Templates\Models\Templates;
 use ByTIC\NotifierBuilder\Topics\Models\Topics;

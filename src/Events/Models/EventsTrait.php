@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Events;
+namespace ByTIC\NotifierBuilder\Events\Models;
 
 use ByTIC\DataObjects\Behaviors\Timestampable\TimestampableManagerTrait;
 use ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordsTrait;

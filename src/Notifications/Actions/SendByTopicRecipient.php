@@ -6,13 +6,13 @@ namespace ByTIC\NotifierBuilder\Notifications\Actions;
 
 use ByTIC\Notifications\ChannelManager;
 use ByTIC\Notifications\Notification;
+use ByTIC\NotifierBuilder\Events\Models\Event;
+use ByTIC\NotifierBuilder\Events\Models\EventTrait;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
-use ByTIC\NotifierBuilder\Models\Events\Event;
-use ByTIC\NotifierBuilder\Models\Events\EventTrait;
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
-use ByTIC\NotifierBuilder\Topics\Actions\FindOrCreateByTargetTrigger;
+use ByTIC\NotifierBuilder\Topics\Actions\FindTopicByTargetTrigger;
 use ByTIC\NotifierBuilder\Topics\Models\Topic;
 use Nip\Records\AbstractModels\Record;
 
@@ -120,7 +120,13 @@ class SendByTopicRecipient
     protected function getTopic(): Topic|Record|null
     {
         if (!isset($this->topic)) {
-            $this->topic = FindOrCreateByTargetTrigger::for($this->target, $this->trigger);
+            $this->topic = FindTopicByTargetTrigger
+                ::for(
+                    $this->target,
+                    $this->trigger
+                )
+                ->orCreate()
+                ->fetch();
         }
         return $this->topic;
     }

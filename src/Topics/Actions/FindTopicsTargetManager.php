@@ -18,7 +18,6 @@ class FindTopicsTargetManager extends Action
     use HasSubject;
     use Memoizable;
 
-    public const NAMESPACE_SEPARATOR = '::';
 
     public function handle()
     {

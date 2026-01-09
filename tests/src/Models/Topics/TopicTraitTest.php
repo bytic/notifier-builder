@@ -2,13 +2,14 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Models\Topics;
 
-use ByTIC\NotifierBuilder\Models\Events\Event;
-use ByTIC\NotifierBuilder\Models\Events\Events;
+use ByTIC\NotifierBuilder\Events\Models\Event;
+use ByTIC\NotifierBuilder\Events\Models\Events;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
 use ByTIC\NotifierBuilder\Topics\Models\Topic;
 use Mockery;
 use Nip\Records\Locator\ModelLocator;
 use Nip\Records\Record;
+use Nip\Records\RecordManager;
 
 /**
  * Class TopicTraitTest.
@@ -27,6 +28,9 @@ class TopicTraitTest extends AbstractTest
         ModelLocator::set(Events::class, $eventsMock);
 
         $model = new Record();
+        $repository = new RecordManager();
+        $repository->setMorphName('test-model');
+        $model->setManager($repository);
 
         $topic = new Topic();
         $event = $topic->fireEvent($model);

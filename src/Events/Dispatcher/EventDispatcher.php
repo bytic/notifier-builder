@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Events\Dispatcher;
 
+use ByTIC\NotifierBuilder\Events\Models\EventTrait;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
-use ByTIC\NotifierBuilder\Models\Events\EventTrait;
 use ByTIC\NotifierBuilder\Notifications\Actions\SendByTopicRecipient;
 use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait;
 

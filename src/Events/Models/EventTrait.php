@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Events;
+namespace ByTIC\NotifierBuilder\Events\Models;
 
 use ByTIC\Common\Records\Emails\Builder\BuilderAwareTrait;
 use ByTIC\DataObjects\Behaviors\Timestampable\TimestampableTrait;
@@ -20,7 +20,8 @@ use Nip\Records\AbstractModels\Record;
  * @method Topic getTopic()
  *
  * @property int $id_topic
- * @property int $id_item
+ * @property int $target_id
+ * @property string $target_type
  */
 trait EventTrait
 {
@@ -94,7 +95,8 @@ trait EventTrait
     public function populateFromModel($model)
     {
         $this->setModel($model);
-        $this->id_item = $model->id;
+        $this->target_id = $model->id;
+        $this->target_type = $model->getManager()->getMorphName();
     }
 
     /**

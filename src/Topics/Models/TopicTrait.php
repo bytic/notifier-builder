@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Topics\Models;
 
-use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
+use ByTIC\NotifierBuilder\Events\Actions\Create\CreateEventByTargetTopic;
+use ByTIC\NotifierBuilder\Events\Models\EventTrait as Event;
 use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait as Recipient;
 use ByTIC\NotifierBuilder\Topics\Actions\FindTopicsTargetManager;
-use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\RecordManager;
 
 /**
@@ -39,14 +39,7 @@ trait TopicTrait
      */
     public function fireEvent($model)
     {
-        /** @var Event $event */
-        $event = NotifierBuilderModels::events()->getNew();
-        $event->status = 'pending';
-        $event->populateFromTopic($this);
-        $event->populateFromModel($model);
-        $event->save();
-
-        return $event;
+        return CreateEventByTargetTopic::for($model, $this)->create();
     }
 
     /**

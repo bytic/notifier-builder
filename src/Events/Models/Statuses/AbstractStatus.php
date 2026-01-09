@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Events\Statuses;
+namespace ByTIC\NotifierBuilder\Events\Models\Statuses;
 
 use ByTIC\Models\SmartProperties\Properties\Types\Generic;
 
