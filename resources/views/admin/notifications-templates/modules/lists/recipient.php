@@ -2,7 +2,9 @@
 declare(strict_types=1);
 
 
+use ByTIC\Icons\Icons;
 use ByTIC\NotifierBuilder\Templates\Models\Template;
+use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /** @var Template[] $templates */
 $templates = $this->templates;
@@ -24,6 +26,7 @@ endif; ?>
         <th><?= translator()->trans('parent'); ?></th>
         <th><?= translator()->trans('channel'); ?></th>
         <th><?= translator()->trans('subject'); ?></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -39,6 +42,11 @@ endif; ?>
             <td>
                 <a href="<?= $template->getURL(); ?>">
                     <?= $template->getSubject(); ?>
+                </a>
+            </td>
+            <td>
+                <a href="<?= $template->getURL(); ?>" class="btn btn-sm btn-outline-primary">
+                    <?= Icons::edit(); ?>
                 </a>
             </td>
         </tr>

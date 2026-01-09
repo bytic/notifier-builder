@@ -28,7 +28,9 @@ trait RecipientsControllerTrait
         $templates = NotifierBuilderModels::templates()->newCollection();
         foreach ($channels as $channel) {
             $templateAction = FindOrCreateTemplatesByParents::for($topic, $item->getRecipient(), $channel);
-            $templateAction->withParents([$parentId => $parentType]);
+            if ($parentId && $parentType) {
+                $templateAction->withParents([$parentId => $parentType]);
+            }
             $templateAction->orCreate();
             $templates->push($templateAction->fetch());
         }
