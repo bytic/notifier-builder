@@ -32,4 +32,9 @@ class PackageConfig extends \ByTIC\PackageBase\Utility\PackageConfig
     {
         return false !== static::instance()->get('database.migrations', false);
     }
+
+    public static function namespace(): ?string
+    {
+        return static::instance()->get('namespace');
+    }
 }

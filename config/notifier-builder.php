@@ -24,6 +24,7 @@ return [
         NotifierBuilderModels::TOPICS => Topics::TABLE,
         NotifierBuilderModels::JOBS => Jobs::TABLE,
     ],
+    'namespace' => null,
     'database' => [
         'connection' => 'main',
         'migrations' => true,

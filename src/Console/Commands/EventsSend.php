@@ -6,7 +6,9 @@ namespace ByTIC\NotifierBuilder\Console\Commands;
 
 use ByTIC\Console\Command;
 use ByTIC\NotifierBuilder\Events\Models\Event;
+use ByTIC\NotifierBuilder\Topics\Actions\FindTopicsByNamespace;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
+use ByTIC\NotifierBuilder\Utility\PackageConfig;
 use Exception;
 use Nip\Records\Collections\Collection;
 use Symfony\Component\Console\Input\InputInterface;
@@ -56,12 +58,14 @@ class EventsSend extends Command
      */
     protected function getNextEvents()
     {
-        return NotifierBuilderModels::events()->findByParams(
-            [
-                'where' => ['`status` = \'pending\' '],
-                'limit' => 10,
-            ]
-        );
+        $activeTopics = FindTopicsByNamespace::for(PackageConfig::namespace())->fetch();
+        $topicIds = $activeTopics->pluck('id')->toArray();
+
+        $params = [];
+        $params['where'][] = ['`status` = \'pending\' '];
+        $params['where'][] = ['`id_topic` IN ?', $topicIds];
+        $params['limit'] = 10;
+        return NotifierBuilderModels::events()->findByParams($params);
     }
 
     /**
