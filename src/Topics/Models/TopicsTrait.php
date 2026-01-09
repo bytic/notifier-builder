@@ -1,11 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Topics\Models;
 
-use ByTIC\NotifierBuilder\Events\Models\EventTrait as Event;
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
-use Nip\Records\AbstractModels\Record;
 use Nip\Records\Locator\ModelLocator;
 
 /**
@@ -37,19 +36,6 @@ trait TopicsTrait
     protected function initRelationsRecipients()
     {
         $this->hasMany('Recipients', ['class' => get_class(NotifierBuilderModels::recipients()), 'fk' => 'id_topic']);
-    }
-
-    /**
-     * Fire a notification event.
-     *
-     * @param Record $model Model Record instance
-     * @param string $trigger Trigger name
-     *
-     * @return bool|Event
-     */
-    public static function fireEvent($model, $trigger)
-    {
-
     }
 
     protected function generateTable(): string
