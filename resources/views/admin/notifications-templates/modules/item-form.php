@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
-$notificationMessages = NotifierBuilderModels::messages();
+$notificationMessages = NotifierBuilderModels::templates();
 
 ?>
 <div class="row">

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Bundle\Admin\Controllers;
 
+use ByTIC\NotifierBuilder\Bundle\Admin\Forms\Messages\DetailsForm;
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
 use ByTIC\NotifierBuilder\Templates\Models\Template;
 use ByTIC\NotifierBuilder\Templates\Models\TemplateTrait;
@@ -19,6 +20,8 @@ trait TemplatesControllerTrait
 {
     public function view()
     {
+        parent::view();
+
         $item = $this->getModelFromRequest();
         $recipient = $item->getNotificationRecipient();
 
@@ -32,12 +35,17 @@ trait TemplatesControllerTrait
         );
     }
 
+    protected function getModelFormClass($model, $action = null): string
+    {
+        return DetailsForm::class;
+    }
+
     /**
      * {@inheritDoc}
      */
     protected function generateModelName(): string
     {
-        return get_class(NotifierBuilderModels::messages());
+        return get_class(NotifierBuilderModels::templates());
     }
 
     /**
