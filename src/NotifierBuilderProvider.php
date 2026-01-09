@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\NotifierBuilder;
 
 use ByTIC\NotifierBuilder\Console\Commands\EventsSend;
 use ByTIC\NotifierBuilder\Utility\PackageConfig;
+use ByTIC\NotifierBuilder\Utility\PathsHelpers;
 use ByTIC\PackageBase\BaseBootableServiceProvider;
 
 /**
@@ -20,6 +23,12 @@ class NotifierBuilderProvider extends BaseBootableServiceProvider
         }
 
         return null;
+    }
+
+
+    protected function translationsPath(): string
+    {
+        return PathsHelpers::lang();
     }
 
     protected function registerCommands()
