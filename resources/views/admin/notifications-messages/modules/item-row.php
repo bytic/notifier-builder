@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use ByTIC\NotifierBuilder\Models\Topics\Topic;
+use ByTIC\NotifierBuilder\Topics\Models\Topic;
 
 /* @var Topic $item */
 ?>

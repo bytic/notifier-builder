@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Topics\Actions;
 
-use ByTIC\NotifierBuilder\Models\Topics\Topic;
-use ByTIC\NotifierBuilder\Models\Topics\Topics;
+use ByTIC\NotifierBuilder\Topics\Models\Topic;
+use ByTIC\NotifierBuilder\Topics\Models\Topics;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
 use Nip\Records\RecordManager;

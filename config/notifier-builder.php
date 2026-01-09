@@ -6,7 +6,7 @@ use ByTIC\NotifierBuilder\Jobs\Models\Jobs;
 use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
-use ByTIC\NotifierBuilder\Models\Topics\Topics;
+use ByTIC\NotifierBuilder\Topics\Models\Topics;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 return [

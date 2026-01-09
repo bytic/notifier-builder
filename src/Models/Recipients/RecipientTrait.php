@@ -12,9 +12,9 @@ use ByTIC\NotifierBuilder\Messages\Actions\Find\FindOrCreateMessageForRecipient;
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Models\Recipients\Types\AbstractType;
-use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipients;
+use ByTIC\NotifierBuilder\Topics\Models\TopicTrait as Topic;
 use Nip\Records\RecordManager as Records;
 
 /**

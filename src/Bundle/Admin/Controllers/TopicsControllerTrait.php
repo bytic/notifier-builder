@@ -2,7 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Bundle\Admin\Controllers;
 
-use ByTIC\NotifierBuilder\Models\Topics\Topic;
+use ByTIC\NotifierBuilder\Topics\Models\Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
