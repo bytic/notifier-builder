@@ -2,9 +2,9 @@
 
 namespace ByTIC\NotifierBuilder\Tests\Models\Recipients;
 
-use ByTIC\NotifierBuilder\Models\Messages\Message;
-use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
+use ByTIC\NotifierBuilder\Templates\Templates\Template;
+use ByTIC\NotifierBuilder\Templates\Templates\Templates;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
 use Mockery as m;
 use Nip\Records\Locator\ModelLocator;
@@ -24,11 +24,11 @@ class RecipientTraitTest extends AbstractTest
     {
         $recipient = new Recipient();
         $recipient->id_topic = 7;
-        $messages = m::mock(Messages::class)->makePartial();
-        $messages->shouldReceive('findOneByParams')->andReturn(new Message());
-        ModelLocator::set(Messages::class, $messages);
+        $messages = m::mock(Templates::class)->makePartial();
+        $messages->shouldReceive('findOneByParams')->andReturn(new Template());
+        ModelLocator::set(Templates::class, $messages);
 
-        self::assertInstanceOf(Message::class, $recipient->getNotificationMessage('mychannel'));
+        self::assertInstanceOf(Template::class, $recipient->getNotificationMessage('mychannel'));
     }
 
 //    public function testSend()

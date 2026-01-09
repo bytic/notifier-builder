@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Messages\Builder\Traits;
+namespace ByTIC\NotifierBuilder\Templates\Builder\Traits;
 
 use Bytic\MailTemplates\Resources\Templates\Ink\InkTemplate;
 use Bytic\MailTemplates\Templates\AbstractTemplate;

@@ -8,12 +8,12 @@ use ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordTrait;
 use ByTIC\Notifications\Notifiable;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
-use ByTIC\NotifierBuilder\Messages\Actions\Find\FindOrCreateMessageForRecipient;
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
-use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipients;
 use ByTIC\NotifierBuilder\Recipients\Models\Types\AbstractType;
+use ByTIC\NotifierBuilder\Templates\Actions\Find\FindOrCreateMessageForRecipient;
+use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait as Message;
 use ByTIC\NotifierBuilder\Topics\Models\TopicTrait as Topic;
 use Nip\Records\RecordManager as Records;
 

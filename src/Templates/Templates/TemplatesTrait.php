@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Messages;
+namespace ByTIC\NotifierBuilder\Templates\Templates;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
-use ByTIC\NotifierBuilder\Models\Messages\MessageTrait as Message;
+use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait as Message;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 
 /**
@@ -13,7 +13,7 @@ use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
  *
  * @method Message findOneByParams($params)
  */
-trait MessagesTrait
+trait TemplatesTrait
 {
     use HasDatabaseConnectionTrait;
 
@@ -39,11 +39,11 @@ trait MessagesTrait
 
     protected function initRelationsMessageParent()
     {
-        $this->morphTo(Messages::RELATION_PARENT, ['morphPrefix' => 'parent']);
+        $this->morphTo(Templates::RELATION_PARENT, ['morphPrefix' => 'parent']);
     }
 
     protected function generateTable(): string
     {
-        return Messages::TABLE;
+        return Templates::TABLE;
     }
 }

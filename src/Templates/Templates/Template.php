@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Messages;
+namespace ByTIC\NotifierBuilder\Templates\Templates;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordTrait;
 use Nip\Records\Record;
 
 /**
- * Class Message.
+ * Class Template.
  */
-class Message extends Record
+class Template extends Record
 {
-    use MessageTrait;
+    use TemplateTrait;
     use CommonRecordTrait;
 }

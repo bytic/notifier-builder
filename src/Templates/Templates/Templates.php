@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Messages;
+namespace ByTIC\NotifierBuilder\Templates\Templates;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordsTrait;
 use Nip\Records\RecordManager;
 
 /**
- * Class Messages.
+ * Class Templates.
  */
-class Messages extends RecordManager
+class Templates extends RecordManager
 {
-    use MessagesTrait;
+    use TemplatesTrait;
     use CommonRecordsTrait;
 
-    public const TABLE = 'notifications-messages';
+    public const TABLE = 'notifications-templates';
 
     public const RELATION_PARENT = 'ParentRecord';
 }

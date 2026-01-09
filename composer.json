@@ -35,6 +35,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
+    "classmap": [
+      "legacy"
+    ],
     "psr-4": {
       "ByTIC\\NotifierBuilder\\": "src/"
     }

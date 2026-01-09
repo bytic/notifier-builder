@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Bundle\Admin\Controllers;
 
-use ByTIC\NotifierBuilder\Models\Messages\Message;
-use ByTIC\NotifierBuilder\Models\Messages\MessageTrait;
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
+use ByTIC\NotifierBuilder\Templates\Templates\Template;
+use ByTIC\NotifierBuilder\Templates\Templates\TemplateTrait;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
 
 /**
  * Trait MessagesControllerTrait.
  *
- * @method MessageTrait getModelFromRequest
+ * @method TemplateTrait getModelFromRequest
  */
 trait MessagesControllerTrait
 {
@@ -41,12 +41,12 @@ trait MessagesControllerTrait
     }
 
     /**
-     * @param Message $item
+     * @param Template $item
      * @return bool
      */
     protected function checkItemAccess($item)
     {
-        if (false === ($item instanceof Message)) {
+        if (false === ($item instanceof Template)) {
             return false;
         }
         if ($item->hasParentRecord()) {
