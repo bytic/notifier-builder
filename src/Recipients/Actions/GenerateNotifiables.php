@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Recipients\Actions;
 
+use ByTIC\NotifierBuilder\Events\Models\Event;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
-use ByTIC\NotifierBuilder\Models\Events\Event;
 use ByTIC\NotifierBuilder\Recipients\Models\IsRecipientTrait;
 use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
 use Nip\Records\AbstractModels\Record;

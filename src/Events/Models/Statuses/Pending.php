@@ -1,6 +1,6 @@
 <?php
 
-namespace ByTIC\NotifierBuilder\Models\Events\Statuses;
+namespace ByTIC\NotifierBuilder\Events\Models\Statuses;
 
 /**
  * Class Pending.

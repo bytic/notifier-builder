@@ -2,8 +2,8 @@
 
 namespace ByTIC\NotifierBuilder\Topics\Models;
 
+use ByTIC\NotifierBuilder\Events\Models\EventTrait as Event;
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
-use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
 use Nip\Records\Locator\ModelLocator;
@@ -49,44 +49,7 @@ trait TopicsTrait
      */
     public static function fireEvent($model, $trigger)
     {
-        $target = self::modelToTargetName($model);
-        $topic = self::findByTargetTrigger($target, $trigger);
-        if ($topic) {
-            return $topic->fireEvent($model);
-        }
 
-        return false;
-    }
-
-    /**
-     * @param $target
-     * @param $trigger
-     *
-     * @return false|Topic
-     */
-    public static function findByTargetTrigger($target, $trigger)
-    {
-        $self = self::instance();
-        $params = [
-            'where' => [
-                ['`target` = ?', $target],
-                ['`trigger` = ?', $trigger],
-            ],
-        ];
-
-        return $self->findOneByParams($params);
-    }
-
-    /**
-     * Returns the target name from model instance.
-     *
-     * @param Record $model Model Record instance
-     *
-     * @return string
-     */
-    public static function modelToTargetName($model)
-    {
-        return $model->getManager()->getController();
     }
 
     protected function generateTable(): string

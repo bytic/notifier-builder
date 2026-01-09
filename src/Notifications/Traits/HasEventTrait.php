@@ -2,7 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Notifications\Traits;
 
-use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
+use ByTIC\NotifierBuilder\Events\Models\EventTrait as Event;
 use Nip\Utility\Oop;
 
 /**

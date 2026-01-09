@@ -1,6 +1,6 @@
 <?php
 
-namespace ByTIC\NotifierBuilder\Models\Events;
+namespace ByTIC\NotifierBuilder\Events\Models;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordTrait;
 use Nip\Records\Record;

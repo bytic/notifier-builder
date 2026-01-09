@@ -6,9 +6,9 @@ namespace ByTIC\NotifierBuilder\Recipients\Models;
 
 use ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordTrait;
 use ByTIC\Notifications\Notifiable;
+use ByTIC\NotifierBuilder\Events\Models\EventTrait as Event;
 use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException;
-use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateRecipients;
 use ByTIC\NotifierBuilder\Recipients\Models\Types\AbstractType;

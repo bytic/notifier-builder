@@ -3,8 +3,8 @@
 namespace ByTIC\NotifierBuilder\Notifications\Traits;
 
 use ByTIC\Notifications\Notifiable;
-use ByTIC\NotifierBuilder\Models\Events\Event;
-use ByTIC\NotifierBuilder\Models\Events\EventTrait;
+use ByTIC\NotifierBuilder\Events\Models\Event;
+use ByTIC\NotifierBuilder\Events\Models\EventTrait;
 use ByTIC\NotifierBuilder\Recipients\Models\Recipient;
 use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait;
 

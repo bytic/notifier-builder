@@ -2,7 +2,7 @@
 
 namespace ByTIC\NotifierBuilder\Utility;
 
-use ByTIC\NotifierBuilder\Models\Events\Events;
+use ByTIC\NotifierBuilder\Events\Models\Events;
 use ByTIC\NotifierBuilder\NotifierBuilderProvider;
 use ByTIC\NotifierBuilder\Recipients\Models\Recipients;
 use ByTIC\NotifierBuilder\Templates\Models\Templates;

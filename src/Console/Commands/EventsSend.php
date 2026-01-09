@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ByTIC\NotifierBuilder\Console\Commands;
 
 use ByTIC\Console\Command;
-use ByTIC\NotifierBuilder\Models\Events\Event;
+use ByTIC\NotifierBuilder\Events\Models\Event;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Exception;
 use Nip\Records\Collections\Collection;
