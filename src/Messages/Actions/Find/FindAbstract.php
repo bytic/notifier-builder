@@ -8,7 +8,7 @@ use ByTIC\NotifierBuilder\Messages\Factories\MessageFactory;
 use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use ByTIC\NotifierBuilder\Models\Messages\MessageTrait;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientsTrait as Recipients;
-use ByTIC\NotifierBuilder\Models\Topics\Topic;
+use ByTIC\NotifierBuilder\Topics\Models\Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Closure;
 use Nip\Records\AbstractModels\Record;

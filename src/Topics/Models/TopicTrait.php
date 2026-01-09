@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\NotifierBuilder\Models\Topics;
+namespace ByTIC\NotifierBuilder\Topics\Models;
 
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
 use ByTIC\NotifierBuilder\Models\Recipients\RecipientTrait as Recipient;
-use ByTIC\NotifierBuilder\Models\Topics\TopicsTrait as Topics;
+use ByTIC\NotifierBuilder\Topics\Actions\FindTopicsTargetManager;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\RecordManager;
 
@@ -20,8 +20,6 @@ use Nip\Records\RecordManager;
  */
 trait TopicTrait
 {
-    protected $targetManager = null;
-
     protected ?string $target = null;
     protected ?string $trigger = null;
 
@@ -60,9 +58,9 @@ trait TopicTrait
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTarget()
+    public function getTarget(): ?string
     {
         return $this->target;
     }
@@ -72,21 +70,6 @@ trait TopicTrait
      */
     public function getTargetManager()
     {
-        if (null === $this->targetManager) {
-            $this->targetManager = $this->generateTargetManager();
-        }
-
-        return $this->targetManager;
-    }
-
-    /**
-     * @return RecordManager
-     */
-    public function generateTargetManager()
-    {
-        /** @var Topics $topicsManager */
-        $topicsManager = NotifierBuilderModels::topics();
-
-        return $topicsManager::getTargetManager($this->getTarget());
+        return FindTopicsTargetManager::for($this)->handle();
     }
 }

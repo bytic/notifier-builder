@@ -10,10 +10,10 @@ use ByTIC\NotifierBuilder\Exceptions\NotificationModelNotFoundException;
 use ByTIC\NotifierBuilder\Models\Events\Event;
 use ByTIC\NotifierBuilder\Models\Events\EventTrait;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipient;
-use ByTIC\NotifierBuilder\Models\Topics\Topic;
 use ByTIC\NotifierBuilder\Notifications\NotificationFactory;
 use ByTIC\NotifierBuilder\Recipients\Actions\GenerateNotifiables;
 use ByTIC\NotifierBuilder\Topics\Actions\FindOrCreateByTargetTrigger;
+use ByTIC\NotifierBuilder\Topics\Models\Topic;
 use Nip\Records\AbstractModels\Record;
 
 /**

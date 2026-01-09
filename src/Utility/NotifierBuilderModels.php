@@ -5,8 +5,8 @@ namespace ByTIC\NotifierBuilder\Utility;
 use ByTIC\NotifierBuilder\Models\Events\Events;
 use ByTIC\NotifierBuilder\Models\Messages\Messages;
 use ByTIC\NotifierBuilder\Models\Recipients\Recipients;
-use ByTIC\NotifierBuilder\Models\Topics\Topics;
 use ByTIC\NotifierBuilder\NotifierBuilderProvider;
+use ByTIC\NotifierBuilder\Topics\Models\Topics;
 use ByTIC\PackageBase\Utility\ModelFinder;
 use Nip\Records\RecordManager;
 

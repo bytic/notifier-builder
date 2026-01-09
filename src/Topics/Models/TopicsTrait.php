@@ -1,10 +1,9 @@
 <?php
 
-namespace ByTIC\NotifierBuilder\Models\Topics;
+namespace ByTIC\NotifierBuilder\Topics\Models;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Models\Events\EventTrait as Event;
-use ByTIC\NotifierBuilder\Models\Topics\TopicTrait as Topic;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\AbstractModels\Record;
 use Nip\Records\Locator\ModelLocator;
@@ -76,16 +75,6 @@ trait TopicsTrait
         ];
 
         return $self->findOneByParams($params);
-    }
-
-    /**
-     * @param $name
-     *
-     * @return mixed
-     */
-    public static function getTargetManager($name)
-    {
-        return ModelLocator::get($name);
     }
 
     /**

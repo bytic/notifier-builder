@@ -10,4 +10,6 @@ return [
     'notifications-topics.messages.update' => 'Subiect modificat',
     'notifications-topics.messages.activate' => 'Subiect activat',
     'notifications-topics.messages.deactivate' => 'Subiect dezactivat',
+
+    'notifications-topics.messages.dnx' => 'Nu există subiecte definite.',
 ];

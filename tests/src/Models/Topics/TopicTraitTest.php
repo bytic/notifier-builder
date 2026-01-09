@@ -4,8 +4,8 @@ namespace ByTIC\NotifierBuilder\Tests\Models\Topics;
 
 use ByTIC\NotifierBuilder\Models\Events\Event;
 use ByTIC\NotifierBuilder\Models\Events\Events;
-use ByTIC\NotifierBuilder\Models\Topics\Topic;
 use ByTIC\NotifierBuilder\Tests\AbstractTest;
+use ByTIC\NotifierBuilder\Topics\Models\Topic;
 use Mockery;
 use Nip\Records\Locator\ModelLocator;
 use Nip\Records\Record;

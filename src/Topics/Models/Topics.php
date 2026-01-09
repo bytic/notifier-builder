@@ -1,6 +1,6 @@
 <?php
 
-namespace ByTIC\NotifierBuilder\Models\Topics;
+namespace ByTIC\NotifierBuilder\Topics\Models;
 
 use ByTIC\NotifierBuilder\Models\AbstractModels\CommonRecordsTrait;
 use Nip\Records\RecordManager;

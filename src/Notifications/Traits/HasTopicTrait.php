@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Notifications\Traits;
 
-use ByTIC\NotifierBuilder\Models\Topics\Topic;
-use ByTIC\NotifierBuilder\Models\Topics\TopicTrait;
+use ByTIC\NotifierBuilder\Topics\Models\Topic;
+use ByTIC\NotifierBuilder\Topics\Models\TopicTrait;
 use Nip\Utility\Oop;
 
 /**
