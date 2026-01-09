@@ -25,7 +25,6 @@ class NotifierBuilderProvider extends BaseBootableServiceProvider
         return null;
     }
 
-
     protected function translationsPath(): string
     {
         return PathsHelpers::lang();

@@ -13,6 +13,7 @@ use ByTIC\NotifierBuilder\Exceptions\NotificationRecipientModelNotFoundException
 use ByTIC\NotifierBuilder\Recipients\Models\RecipientTrait;
 use ByTIC\NotifierBuilder\Topics\Models\TopicTrait as Topic;
 use Nip\Records\AbstractModels\Record;
+use Nip\Records\Locator\ModelLocator;
 
 /**
  * Trait EventsTrait.
@@ -142,8 +143,12 @@ trait EventTrait
      */
     public function findModel(): ?Record
     {
-        $manager = $this->getTopic()->getTargetManager();
+        if (ModelLocator::has($this->target_type)) {
+            $manager = ModelLocator::get($this->target_type);
+        } else {
+            $manager = $this->getTopic()->getTargetManager();
+        }
 
-        return $manager->findOne($this->id_item);
+        return $manager->findOne($this->target_id);
     }
 }

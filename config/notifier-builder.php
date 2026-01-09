@@ -21,6 +21,7 @@ return [
         NotifierBuilderModels::RECIPIENTS => Recipients::TABLE,
         NotifierBuilderModels::TOPICS => Topics::TABLE,
     ],
+    'namespace' => null,
     'database' => [
         'connection' => 'main',
         'migrations' => true,
