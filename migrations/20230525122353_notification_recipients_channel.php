@@ -6,7 +6,7 @@ use ByTIC\NotifierBuilder\Channels\Dto\ChannelsEnum;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Phinx\Migration\AbstractMigration;
 
-final class NotificationRecipientsTopicFk extends AbstractMigration
+final class NotificationRecipientsChannel extends AbstractMigration
 {
     /**
      * Change Method.
