@@ -1,17 +1,21 @@
 <?php
 declare(strict_types=1);
 
-use ByTIC\NotifierBuilder\Topics\Models\Topic;
+/** @var Template $item */
 
-/* @var Topic $item */
+use ByTIC\NotifierBuilder\Templates\Models\Template;
+
+$topic = $item->getTopic();
 ?>
 <tr>
     <td>
-        <a href="<?= $item->getURL(); ?>" title="" class="notifications-topic">
-            <?= $item->getTargetManager()->getLabel('title'); ?>
-        </a>
+        <?= $topic->getTarget(); ?>
+        /
+        <?= $topic->getTrigger(); ?>
     </td>
     <td>
-        <?= $item->getTrigger(); ?>
+        <a href="<?= $item->getURL(); ?>" title="" class="notifications-topic">
+            <?= $item->getSubject(); ?>
+        </a>
     </td>
 </tr>

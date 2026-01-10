@@ -14,9 +14,17 @@ class FindOrCreateTemplatesByParents extends FindOrCreateTemplates
 {
     protected array $parents = [];
 
+    protected $searchGlobal = true;
+
     public function withParents(array $parents): self
     {
         $this->parents = $parents;
+        return $this;
+    }
+
+    public function searchGlobal($searchGlobal): self
+    {
+        $this->searchGlobal = $searchGlobal;
         return $this;
     }
 
@@ -57,9 +65,11 @@ class FindOrCreateTemplatesByParents extends FindOrCreateTemplates
                 return $message;
             }
         }
-        $message = $this->findByParents(null, null, $params);
-        if ($message) {
-            return $message;
+        if ($this->searchGlobal) {
+            $message = $this->findByParents(null, null, $params);
+            if ($message) {
+                return $message;
+            }
         }
         return $this->getDefault();
     }

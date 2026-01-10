@@ -48,6 +48,13 @@ trait TemplateTrait
         return $this->channel;
     }
 
+    public function setParentId(null|string|int $parent_id): void
+    {
+        $parent_id = (int)$parent_id;
+        $parent_id = $parent_id === '' || $parent_id === 0 ? null : $parent_id;
+        $this->parent_id = $parent_id;
+    }
+
     public function getParentId(): null|int|string
     {
         return $this->getPropertyRaw('parent_id');
