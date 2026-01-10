@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace ByTIC\NotifierBuilder\Topics\Models;
 
+use ByTIC\NotifierBuilder\Events\Actions\Create\FireEventByTargetTrigger;
+use ByTIC\NotifierBuilder\Events\Models\Event;
 use ByTIC\NotifierBuilder\Models\AbstractModels\HasDatabaseConnectionTrait;
 use ByTIC\NotifierBuilder\Utility\NotifierBuilderModels;
 use Nip\Records\Locator\ModelLocator;
@@ -15,6 +17,17 @@ use Nip\Records\Locator\ModelLocator;
 trait TopicsTrait
 {
     use HasDatabaseConnectionTrait;
+
+    /**
+     * @param $model
+     * @param $trigger
+     * @return bool|Event
+     * @deprecated use FireEventByTargetTrigger action instead
+     */
+    public static function fireEvent($model, $trigger): bool|Event
+    {
+        return FireEventByTargetTrigger::for($model, $trigger)->fire();
+    }
 
     protected function initRelations()
     {
