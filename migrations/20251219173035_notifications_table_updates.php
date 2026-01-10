@@ -40,9 +40,11 @@ final class NotificationsTableUpdates extends AbstractMigration
 
     protected function changeItemStructure($table)
     {
+        $table->removeIndex(['id_item']);
+        $table->save();
+
         $table->renameColumn('id_item', 'target_id');
         $table->addColumn('target_type', 'string', ['limit' => 100, 'null' => true, 'after' => 'target_id']);
-        $table->removeIndex(['id_item']);
         $table->addIndex(['target_type', 'target_id'], ['name' => 'idx_target_type_id']);
         $table->save();
     }
