@@ -27,11 +27,23 @@ final class NotificationsTableUpdates extends AbstractMigration
 
         $table = $this->table('notifications-events');
         if ($table->hasColumn('id_item')) {
-            $table->renameColumn('id_item', 'target_id');
-            $table->addColumn('target_type', 'string', ['limit' => 100, 'null' => true, 'after' => 'target_id']);
-            $table->removeIndex(['id_item']);
-            $table->addIndex(['target_type', 'target_id'], ['name' => 'idx_target_type_id']);
-            $table->save();
+            $this->changeItemStructure($table);
+            $this->execute(
+                '
+                UPDATE `notifications-events` 
+                JOIN `notifications-topics` ON `notifications-events`.`id_topic` = `notifications-topics`.`id`
+                SET `notifications-events`.`target_type` = `notifications-topics`.`target`
+             '
+            );
         }
+    }
+
+    protected function changeItemStructure($table)
+    {
+        $table->renameColumn('id_item', 'target_id');
+        $table->addColumn('target_type', 'string', ['limit' => 100, 'null' => true, 'after' => 'target_id']);
+        $table->removeIndex(['id_item']);
+        $table->addIndex(['target_type', 'target_id'], ['name' => 'idx_target_type_id']);
+        $table->save();
     }
 }
