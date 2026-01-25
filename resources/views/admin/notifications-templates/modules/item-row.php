@@ -9,13 +9,16 @@ $topic = $item->getTopic();
 ?>
 <tr>
     <td>
-        <?= $topic->getTarget(); ?>
-        /
-        <?= $topic->getTrigger(); ?>
+        <a href="<?= $item->getURL(); ?>" title="" class="notifications-topic">
+            <?= $topic->getTarget(); ?>
+            /
+            <?= $topic->getTrigger(); ?>
+        </a>
     </td>
     <td>
-        <a href="<?= $item->getURL(); ?>" title="" class="notifications-topic">
-            <?= $item->getSubject(); ?>
-        </a>
+        <?= $item->channel; ?>
+    </td>
+    <td>
+        <?= $item->getSubject(); ?>
     </td>
 </tr>
