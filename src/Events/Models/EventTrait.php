@@ -19,6 +19,7 @@ use Nip\Records\Locator\ModelLocator;
  * Trait EventsTrait.
  *
  * @method Topic getTopic()
+ * @method Events getManager()
  *
  * @property int $id_topic
  * @property int $target_id
@@ -97,8 +98,13 @@ trait EventTrait
     public function populateFromModel($model)
     {
         $this->setModel($model);
-        $this->target_id = $model->id;
-        $this->target_type = $model->getManager()->getMorphName();
+        if ($this->getManager()->hasField('id_item')) {
+            // @deprecated update DB
+            $this->id_item = $model->id;
+        } else {
+            $this->target_id = $model->id;
+            $this->target_type = $model->getManager()->getMorphName();
+        }
         return $this;
     }
 
